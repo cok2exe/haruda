@@ -6,7 +6,7 @@ export default class HomeComponent extends Component {
   render() {
     return (
       <Grid>
-        <h1>Welcome to React</h1>
+        <h1>하루다</h1>
         <ul>
           <li>
             <Link to="/login">로그인</Link>
