@@ -1,5 +1,6 @@
-import React from 'react'
-import { Switch } from 'react-router-dom'
+import React, { Component } from 'react'
+import { observer, inject } from 'mobx-react'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
 
 /* Import the components */
@@ -15,12 +16,31 @@ const AsyncLogin = Loadable({
   loading: LoadingComponent
 })
 
-/* Use components to define routes */
-export default ({ childProps }) =>
-  <Switch>
-    <AppliedRoute exact path='/' component={AsyncHome} props={childProps} />
-    <AppliedRoute exact path='/login' component={AsyncLogin} props={childProps} />
+@inject('authStore', 'sampleMobxStore')
+@observer
+export default class RouterContainer extends Component {
+  render() {
+    console.log(this.props)
+    return (
+      <Router>
+        <Switch>
+          <AppliedRoute
+            exact
+            path="/"
+            component={AsyncHome}
+            props={this.props}
+          />
+          <AppliedRoute
+            exact
+            path="/login"
+            component={AsyncLogin}
+            props={this.props}
+          />
 
-    {/* Finally, catch all unmatched routes */}
-    {/* <Route component={AsyncNotFound} /> */}
-  </Switch>
+          {/* Finally, catch all unmatched routes */}
+          {/* <Route component={AsyncNotFound} /> */}
+        </Switch>
+      </Router>
+    )
+  }
+}

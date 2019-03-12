@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 
-import AuthActions from '@/actions/Auth'
+import SampleActions from '@/actions/SampleActions'
+
 import LoginComponent from '@/components/Login'
 
 import './style.scss'
@@ -18,14 +19,13 @@ export default class LoginContainer extends Component {
     this.setState(updatedState)
   }
 
-  login = () => {
-    AuthActions.logIn()
-      .then(result => {
-        // success
-      })
-      .catch(err => {
-        // fail
-      })
+  async login() {
+    try {
+      const user = SampleActions.getUsers()
+      console.log(user)
+    } catch (err) {
+      alert(err.errorMessage || err.message)
+    }
   }
 
   render() {
@@ -43,7 +43,7 @@ export default class LoginContainer extends Component {
           username={username}
           password={password}
           handleChange={this.handleChange}
-          login={this.login}
+          login={this.login.bind(this)}
         />
       )
     )

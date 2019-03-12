@@ -2,7 +2,7 @@ import config from './config'
 
 const API_PATH = `${config.api.host}:${config.api.port}/${config.api.prefix}`
 
-export const normal = {
+export default {
   AUTH: {
     LOGIN: {
       method: 'POST',
