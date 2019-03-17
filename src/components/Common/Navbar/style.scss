@@ -1,36 +1,24 @@
 @import '~@/styles/shared/colors.scss';
 
 .navbar {
-  background-color: $sky-blue;
   padding: 20px 0;
   height: 60px;
 
+  position: fixed;
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+
   .container {
     display: flex;
+    align-items: center;
   }
 
   &__logo {
     margin-right: 30px;
   }
 
-  &__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex: 1;
-
-    li {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 20px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      a {
-        color: $white;
-      }
-    }
+  &__menus {
+    margin-left: auto;
   }
 }

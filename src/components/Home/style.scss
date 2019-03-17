@@ -1,0 +1,20 @@
+@import '~@/styles/shared/colors.scss';
+
+.section-main {
+  .main-info {
+    padding: 100px 0;
+    background: url('/images/main/bg_main_info.jpg') no-repeat center
+      transparent;
+    background-size: cover;
+    background-attachment: fixed;
+
+    &__text {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 25px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

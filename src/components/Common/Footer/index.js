@@ -18,6 +18,10 @@ export default class FooterComponent extends PureComponent {
               @cok2exe
             </Link>
           </div>
+          {/* <ul className="footer__reference">
+            <li>icon by. https://icons8.com/</li>
+            <li>pictures by. </li>
+          </ul> */}
         </div>
       </div>
     )

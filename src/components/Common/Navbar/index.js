@@ -11,17 +11,9 @@ export default class NavbarContainer extends Component {
           <Link to="/">
             <div className="navbar__logo">하루다</div>
           </Link>
-          <ul className="navbar__list">
-            <li>
-              <Link to="#">메뉴1</Link>
-            </li>
-            <li>
-              <Link to="#">메뉴2</Link>
-            </li>
-          </ul>
-          <div className="navbar__user">
-            <Link to="#">로그인</Link>
-            <button>로그아웃</button>
+          <div className="navbar__menus">
+            <Link to="#">My Diary</Link>
+            {/* <button>로그아웃</button> */}
           </div>
         </div>
       </div>

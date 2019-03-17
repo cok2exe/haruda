@@ -3,10 +3,23 @@
 * {
   box-sizing: border-box;
   font-family: 'NanumBarunPen', sans-serif;
+  color: $black;
+}
+
+p {
+  margin: 0;
+}
+
+/**
+ * colors
+ */
+.c-blue {
+  color: $blue;
 }
 
 .navbar + * {
-  height: calc(100vh - 140px);
+  min-height: calc(100vh - 80px);
+  padding-top: 60px;
 }
 
 .container {
