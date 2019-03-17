@@ -49,6 +49,10 @@ export default class RouterContainer extends Component {
       this.setState({
         initRender: true
       })
+    } else {
+      this.setState({
+        initRender: true
+      })
     }
   }
 
