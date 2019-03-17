@@ -24,12 +24,12 @@ p {
 }
 
 .container {
-  width: 990px;
   margin: 0 auto;
   padding: 0 10px;
+  width: 100%;
 
-  @media (max-width: 767px) {
-    width: 100%;
+  @media (min-width: 990px) {
+    width: 990px;
   }
 }
 

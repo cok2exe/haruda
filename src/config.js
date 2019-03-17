@@ -1,7 +1,10 @@
-export default {
+const config = {
   api: {
-    host: 'http://localhost',
-    port: 8080,
-    prefix: 'api'
+    host: 'http://13.209.72.202',
+    port: 18080,
+    prefix: 'api',
+    version: 'v1.0'
   }
 }
+
+export default config
