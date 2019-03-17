@@ -26,6 +26,12 @@ export default class LoginContainer extends Component {
     this.setState(state)
   }
 
+  async handleKeyPress(e) {
+    if (e.charCode === 13) {
+      await this.login()
+    }
+  }
+
   async login() {
     const { email, password } = this.state
 
@@ -48,6 +54,7 @@ export default class LoginContainer extends Component {
       <LoginComponent
         state={this.state}
         handleChange={this.handleChange}
+        handleKeyPress={this.handleKeyPress.bind(this)}
         login={this.login.bind(this)}
       />
     )

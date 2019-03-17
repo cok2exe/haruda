@@ -12,7 +12,7 @@ import {
 export default class LoginComponent extends Component {
   render() {
     const { email, password } = this.props.state
-    const { handleChange, login } = this.props
+    const { handleChange, handleKeyPress, login } = this.props
 
     return (
       <SectionForm className="section-login">
@@ -37,6 +37,7 @@ export default class LoginComponent extends Component {
                 value={password}
                 placeholder="비밀번호"
                 onChange={handleChange}
+                onKeyPress={handleKeyPress}
               />
             </FormGroup>
             <Button purple onClick={login}>
