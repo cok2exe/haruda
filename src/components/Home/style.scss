@@ -7,11 +7,11 @@
       transparent;
     background-size: cover;
     background-attachment: fixed;
+    text-align: center;
 
     &__text {
       max-width: 500px;
-      margin: 0 auto;
-      text-align: center;
+      margin: 0 auto 50px;
       font-size: 25px;
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.5);
