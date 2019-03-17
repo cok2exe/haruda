@@ -1,6 +1,6 @@
 import config from './config'
 
-const API_PATH = `${config.api.host}/${config.api.port}/${config.api.prefix}/${
+const API_PATH = `${config.api.host}:${config.api.port}/${config.api.prefix}/${
   config.api.version
 }`
 

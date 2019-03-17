@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Button } from '@/styled-ui'
 
 import './style.scss'
@@ -18,7 +18,9 @@ export default class HomeComponent extends Component {
               <br />
               너와 나, 우리의 <b className="c-blue">추억을 공유하다</b>
             </div>
-            <Button blue>하루다 시작하기</Button>
+            <Button blue as={Link} to="/signup">
+              하루다 시작하기
+            </Button>
             <div className="main-info__img" />
           </div>
         </div>
