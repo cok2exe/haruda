@@ -5,7 +5,10 @@ const config = {
     prefix: 'api',
     version: 'v1.0'
   },
-  tokenName: 'haruda-token'
+  tokenName: 'haruda-token',
+  header: {
+    token: 'x-access-token'
+  }
 }
 
 export default config
