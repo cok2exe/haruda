@@ -6,6 +6,10 @@ const API_PATH = `${config.api.host}:${config.api.port}/${config.api.prefix}/${
 
 export default {
   AUTH: {
+    AUTH_TOKEN: {
+      method: 'POST',
+      path: () => `${API_PATH}/auth-token`
+    },
     LOGIN: {
       method: 'POST',
       path: () => `${API_PATH}/login`

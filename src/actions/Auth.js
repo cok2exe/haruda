@@ -3,6 +3,17 @@ import request from 'superagent'
 import APIS from '@/apis'
 
 export default {
+  authToken: async function({ token }) {
+    return new Promise((resolve, reject) =>
+      request(APIS.AUTH.AUTH_TOKEN.method, APIS.AUTH.AUTH_TOKEN.path())
+        .set('x-access-token', token)
+        .end((err, res) => {
+          if (err) reject(res.body)
+          else resolve(res.body)
+        })
+    )
+  },
+
   login: async function({ email, password }) {
     return new Promise((resolve, reject) =>
       request(APIS.AUTH.LOGIN.method, APIS.AUTH.LOGIN.path())

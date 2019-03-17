@@ -4,7 +4,8 @@ const config = {
     port: 18080,
     prefix: 'api',
     version: 'v1.0'
-  }
+  },
+  tokenName: 'haruda-token'
 }
 
 export default config

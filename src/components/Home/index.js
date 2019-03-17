@@ -18,7 +18,7 @@ export default class HomeComponent extends Component {
               <br />
               너와 나, 우리의 <b className="c-blue">추억을 공유하다</b>
             </div>
-            <Button blue as={Link} to="/signup">
+            <Button blue="true" as={Link} to="/login">
               하루다 시작하기
             </Button>
             <div className="main-info__img" />

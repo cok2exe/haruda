@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import { Button } from '@/styled-ui'
+
 import './style.scss'
 
 export default class NavbarContainer extends Component {
   render() {
+    const { user, logout } = this.props
+
     return (
       <div className="navbar">
         <div className="container">
@@ -13,7 +17,7 @@ export default class NavbarContainer extends Component {
           </Link>
           <div className="navbar__menus">
             <Link to="#">My Diary</Link>
-            {/* <button>로그아웃</button> */}
+            {user && <Button onClick={logout}>로그아웃</Button>}
           </div>
         </div>
       </div>

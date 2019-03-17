@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import { FormGroup, FormControl, Button } from '@/styled-ui'
 
@@ -31,6 +32,10 @@ export default class LoginComponent extends Component {
         </FormGroup>
         <Button purple onClick={login}>
           로그인
+        </Button>
+        <br />
+        <Button blue="true" as={Link} to="/signup">
+          회원가입
         </Button>
       </div>
     )
