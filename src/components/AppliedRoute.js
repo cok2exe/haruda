@@ -9,7 +9,7 @@ export default ({ component: C, props: cProps, ...rest }) => (
     render={props => [
       <NavbarContainer key="navbar" />,
       <C key="body" {...props} {...cProps} />,
-      <FooterComponent />
+      <FooterComponent key="footer" />
     ]}
   />
 )

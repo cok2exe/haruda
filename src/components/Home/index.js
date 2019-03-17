@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
-// import { Button } from '@/styled-ui'
+import styled from 'styled-components'
 
 import './style.scss'
 
 export default class HomeComponent extends Component {
   render() {
+    const Button = styled.button`
+      background-color: #000000;
+    `
     return (
       <div className="section-main">
         {/* 메인 섹션 1 */}
@@ -18,7 +21,7 @@ export default class HomeComponent extends Component {
               <br />
               너와 나, 우리의 <b className="c-blue">추억을 공유하다</b>
             </div>
-            {/* <Button>하루다 시작하기</Button> */}
+            <Button>하루다 시작하기</Button>
             <div className="main-info__img" />
           </div>
         </div>
