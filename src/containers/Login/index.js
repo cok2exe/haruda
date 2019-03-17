@@ -35,9 +35,9 @@ export default class LoginContainer extends Component {
         password
       })
 
-      this.props.history.push('/')
-      this.props.authStore.setUser(result.user)
+      this.props.authStore.setUser(result)
       setTokenFromLocalStorage(result.token)
+      this.props.history.push('/diary')
     } catch (err) {
       alert(err.errorMessage || err.message)
     }

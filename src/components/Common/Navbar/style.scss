@@ -20,5 +20,22 @@
 
   &__menus {
     margin-left: auto;
+
+    &.user {
+      display: flex;
+      flex: 1;
+
+      & > *:first-child {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    & > * {
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

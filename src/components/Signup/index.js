@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   SectionForm,
@@ -16,7 +17,7 @@ export default class SignupComponent extends Component {
     return (
       <SectionForm className="section-signup">
         <div className="container">
-          <SectionTitle>Sign Up</SectionTitle>
+          <SectionTitle>회원가입</SectionTitle>
           <div className="section__form">
             <FormGroup>
               <FormControl
@@ -51,6 +52,9 @@ export default class SignupComponent extends Component {
             <Button purple onClick={signup}>
               회원가입 <img src="/images/common/icon_love.png" alt="signup" />
             </Button>
+          </div>
+          <div className="section__sub">
+            <Link to="/login">이미 하루다를 시작하셨다면? Login</Link>
           </div>
         </div>
       </SectionForm>

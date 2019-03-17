@@ -16,6 +16,12 @@ export default class NavbarContainer extends Component {
 
   render() {
     const { user } = this.props.authStore
-    return <NavbarComponent user={user} logout={this.logout} />
+    return (
+      <NavbarComponent
+        user={user}
+        pathname={this.props.location.pathname}
+        logout={this.logout}
+      />
+    )
   }
 }

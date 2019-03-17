@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Button } from '@/styled-ui'
+import { LinkButton } from '@/styled-ui'
 
 import './style.scss'
 
 export default class NavbarContainer extends Component {
   render() {
-    const { user, logout } = this.props
+    const { user, pathname, logout } = this.props
 
     return (
       <div className="navbar">
@@ -15,9 +15,19 @@ export default class NavbarContainer extends Component {
           <Link to="/">
             <div className="navbar__logo">하루다</div>
           </Link>
-          <div className="navbar__menus">
-            <Link to="#">My Diary</Link>
-            {user && <Button onClick={logout}>로그아웃</Button>}
+          <div
+            className={`navbar__menus ${
+              user && pathname === '/diary' ? 'user' : ''
+            }`}
+          >
+            {user && pathname === '/diary' ? (
+              <React.Fragment>
+                <b>{user.name}님의 하루다</b>
+                <LinkButton onClick={logout}>로그아웃</LinkButton>
+              </React.Fragment>
+            ) : (
+              <Link to="/diary">My Diary</Link>
+            )}
           </div>
         </div>
       </div>

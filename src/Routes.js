@@ -8,6 +8,7 @@ import { getTokenFromLocalStorage } from '@/utils/localStorage'
 
 /* Import the components */
 import AppliedRoute from './components/AppliedRoute'
+import ProtectedRoute from './components/ProtectedRoute'
 import LoadingComponent from './components/LoadingComponent'
 
 const AsyncHome = Loadable({
@@ -26,6 +27,10 @@ const AsyncFindPassword = Loadable({
   loader: () => import('./containers/FindPassword'),
   loading: LoadingComponent
 })
+const AsyncDiary = Loadable({
+  loader: () => import('./containers/Diary'),
+  loading: LoadingComponent
+})
 
 @inject('authStore', 'sampleMobxStore')
 @observer
@@ -41,7 +46,8 @@ export default class RouterContainer extends Component {
   }
 
   render() {
-    console.log(this.props)
+    const token = getTokenFromLocalStorage()
+
     return (
       <Router>
         <Switch>
@@ -67,6 +73,13 @@ export default class RouterContainer extends Component {
             exact
             path="/find-password"
             component={AsyncFindPassword}
+            props={this.props}
+          />
+          <ProtectedRoute
+            exact
+            path="/diary"
+            token={token}
+            component={AsyncDiary}
             props={this.props}
           />
 
