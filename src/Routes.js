@@ -11,10 +11,6 @@ const AsyncHome = Loadable({
   loader: () => import('./containers/Home'),
   loading: LoadingComponent
 })
-const AsyncLogin = Loadable({
-  loader: () => import('./containers/Login'),
-  loading: LoadingComponent
-})
 
 @inject('authStore', 'sampleMobxStore')
 @observer
@@ -28,12 +24,6 @@ export default class RouterContainer extends Component {
             exact
             path="/"
             component={AsyncHome}
-            props={this.props}
-          />
-          <AppliedRoute
-            exact
-            path="/login"
-            component={AsyncLogin}
             props={this.props}
           />
 
