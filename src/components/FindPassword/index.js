@@ -1,22 +1,21 @@
 import React, { Component } from 'react'
-
 import {
-  SectionForm,
   SectionTitle,
+  SectionForm,
   FormGroup,
   FormControl,
   Button
 } from '@/styled-ui'
 
-export default class SignupComponent extends Component {
+export default class FindPasswordComponent extends Component {
   render() {
-    const { email, password, name } = this.props.state
-    const { handleChange, signup } = this.props
+    const { email, name } = this.props.state
+    const { handleChange, findPassword } = this.props
 
     return (
-      <SectionForm className="section-signup">
+      <SectionForm className="section-login">
         <div className="container">
-          <SectionTitle>Sign Up</SectionTitle>
+          <SectionTitle>비밀번호 찾기</SectionTitle>
           <div className="section__form">
             <FormGroup>
               <FormControl
@@ -30,16 +29,6 @@ export default class SignupComponent extends Component {
             </FormGroup>
             <FormGroup>
               <FormControl
-                type="password"
-                className="form-control"
-                name="password"
-                value={password}
-                placeholder="비밀번호"
-                onChange={handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <FormControl
                 type="text"
                 className="form-control"
                 name="name"
@@ -48,8 +37,9 @@ export default class SignupComponent extends Component {
                 onChange={handleChange}
               />
             </FormGroup>
-            <Button purple onClick={signup}>
-              회원가입 <img src="/images/common/icon_love.png" alt="signup" />
+            <Button purple onClick={findPassword}>
+              비밀번호 찾기{' '}
+              <img src="/images/common/icon_wonder.png" alt="find_password" />
             </Button>
           </div>
         </div>

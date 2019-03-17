@@ -22,6 +22,10 @@ const AsyncLogin = Loadable({
   loader: () => import('./containers/Login'),
   loading: LoadingComponent
 })
+const AsyncFindPassword = Loadable({
+  loader: () => import('./containers/FindPassword'),
+  loading: LoadingComponent
+})
 
 @inject('authStore', 'sampleMobxStore')
 @observer
@@ -57,6 +61,12 @@ export default class RouterContainer extends Component {
             exact
             path="/login"
             component={AsyncLogin}
+            props={this.props}
+          />
+          <AppliedRoute
+            exact
+            path="/find-password"
+            component={AsyncFindPassword}
             props={this.props}
           />
 

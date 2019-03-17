@@ -17,6 +17,10 @@ export default {
     SIGNUP: {
       method: 'POST',
       path: () => `${API_PATH}/signup`
+    },
+    FIND_PASSWORD: {
+      method: 'POST',
+      path: () => `${API_PATH}/find-password`
     }
   }
 }
