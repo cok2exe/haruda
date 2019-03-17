@@ -1,0 +1,36 @@
+@import '~@/styles/shared/colors.scss';
+
+.navbar {
+  background-color: $sky-blue;
+  padding: 20px 0;
+  height: 60px;
+
+  .container {
+    display: flex;
+  }
+
+  &__logo {
+    margin-right: 30px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        color: $white;
+      }
+    }
+  }
+}

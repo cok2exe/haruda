@@ -4,8 +4,10 @@ import React, { Component } from 'react'
 export default class HomeComponent extends Component {
   render() {
     return (
-      <div className="container">
-        <h1>하루다</h1>
+      <div className="section-home">
+        <div className="container">
+          <div>하루다</div>
+        </div>
       </div>
     )
   }

@@ -1,0 +1,14 @@
+@import '~@/styles/shared/colors.scss';
+
+.footer {
+  background-color: $sky-blue;
+  padding: 30px 0;
+  color: $white;
+  height: 80px;
+
+  &__info {
+    a {
+      color: $white;
+    }
+  }
+}
