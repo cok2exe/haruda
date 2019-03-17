@@ -5,6 +5,12 @@ const API_PATH = `${config.api.host}:${config.api.port}/${config.api.prefix}/${
 }`
 
 export default {
+  FILES: {
+    UPLOAD_IMAGE: {
+      METHOD: 'POST',
+      PATH: () => `${API_PATH}/files/upload/image`
+    }
+  },
   AUTH: {
     AUTH_TOKEN: {
       method: 'POST',
