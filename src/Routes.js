@@ -35,6 +35,10 @@ const AsyncDiary = Loadable({
 @inject('authStore', 'sampleMobxStore')
 @observer
 export default class RouterContainer extends Component {
+  state = {
+    initRender: false
+  }
+
   async componentDidMount() {
     if (getTokenFromLocalStorage()) {
       const result = await AuthActions.authToken({
@@ -42,13 +46,17 @@ export default class RouterContainer extends Component {
       })
 
       this.props.authStore.setUser(result)
+      this.setState({
+        initRender: true
+      })
     }
   }
 
   render() {
-    const token = getTokenFromLocalStorage()
+    const { user } = this.props.authStore
+    const { initRender } = this.state
 
-    return (
+    return initRender ? (
       <Router>
         <Switch>
           <AppliedRoute
@@ -78,7 +86,7 @@ export default class RouterContainer extends Component {
           <ProtectedRoute
             exact
             path="/diary"
-            token={token}
+            user={user}
             component={AsyncDiary}
             props={this.props}
           />
@@ -87,6 +95,8 @@ export default class RouterContainer extends Component {
           {/* <Route component={AsyncNotFound} /> */}
         </Switch>
       </Router>
+    ) : (
+      <LoadingComponent />
     )
   }
 }
