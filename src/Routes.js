@@ -31,6 +31,14 @@ const AsyncDiary = Loadable({
   loader: () => import('./containers/Diary'),
   loading: LoadingComponent
 })
+const AsyncMyPage = Loadable({
+  loader: () => import('./containers/MyPage'),
+  loading: LoadingComponent
+})
+const AsyncChangePw = Loadable({
+  loader: () => import('./containers/MyPage/ChangePw'),
+  loading: LoadingComponent
+})
 
 @inject('authStore', 'sampleMobxStore')
 @observer
@@ -92,6 +100,20 @@ export default class RouterContainer extends Component {
             path="/diary"
             user={user}
             component={AsyncDiary}
+            props={this.props}
+          />
+          <ProtectedRoute
+            exact
+            path="/mypage"
+            user={user}
+            component={AsyncMyPage}
+            props={this.props}
+          />
+          <ProtectedRoute
+            exact
+            path="/mypage/change-pw"
+            user={user}
+            component={AsyncChangePw}
             props={this.props}
           />
 

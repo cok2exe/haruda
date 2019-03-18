@@ -4,7 +4,7 @@
 import styled, { css } from 'styled-components'
 
 // buttons
-const Button = styled.button`
+export const Button = styled.button`
   background-color: ${props =>
     props.blue ? '#0984e3' : props.red ? '#d63031' : '#6c5ce7'};
   color: #ffffff;
@@ -38,13 +38,13 @@ const Button = styled.button`
 `
 
 // link style
-const LinkButton = styled.a`
+export const LinkButton = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `
 
 // input wrapper div
-const FormGroup = styled.div`
+export const FormGroup = styled.div`
   margin: 0 0 15px;
 
   &:last-child {
@@ -53,7 +53,7 @@ const FormGroup = styled.div`
 `
 
 // input
-const FormControl = styled.input`
+export const FormControl = styled.input`
   border-radius: 3px;
   border: 1px solid #b2bec3;
   padding: 0 10px;
@@ -63,4 +63,4 @@ const FormControl = styled.input`
   width: 100%;
 `
 
-export default { Button, LinkButton, FormGroup, FormControl }
+// export default { Button, LinkButton, FormGroup, FormControl }

@@ -20,7 +20,6 @@ export default class FindPasswordComponent extends Component {
             <FormGroup>
               <FormControl
                 type="text"
-                className="form-control"
                 name="email"
                 value={email}
                 placeholder="이메일"
@@ -30,7 +29,6 @@ export default class FindPasswordComponent extends Component {
             <FormGroup>
               <FormControl
                 type="text"
-                className="form-control"
                 name="name"
                 value={name}
                 placeholder="이름"

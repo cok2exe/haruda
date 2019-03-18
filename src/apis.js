@@ -11,6 +11,7 @@ export default {
       PATH: () => `${API_PATH}/files/upload/image`
     }
   },
+
   AUTH: {
     AUTH_TOKEN: {
       method: 'POST',
@@ -27,6 +28,13 @@ export default {
     FIND_PASSWORD: {
       method: 'POST',
       path: () => `${API_PATH}/find-password`
+    }
+  },
+
+  USERS: {
+    PASSWORD: {
+      method: 'PUT',
+      path: () => `${API_PATH}/users/password`
     }
   }
 }
