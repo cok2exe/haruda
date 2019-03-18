@@ -63,9 +63,4 @@ const FormControl = styled.input`
   width: 100%;
 `
 
-export default {
-  Button,
-  LinkButton,
-  FormGroup,
-  FormControl
-}
+export default { Button, LinkButton, FormGroup, FormControl }
