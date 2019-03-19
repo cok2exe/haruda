@@ -12,7 +12,7 @@ import './style.scss'
 
 export default class MyPageComponent extends Component {
   render() {
-    const { user, imgUrl, isEditMode } = this.props.state
+    const { user, imgUrl, file, isEditMode } = this.props.state
     const { goToEditMode, handleChange, updateUser } = this.props
 
     return (
@@ -25,7 +25,7 @@ export default class MyPageComponent extends Component {
                 type="file"
                 accept="image/*"
                 name="profileImage"
-                value={user.profileImage}
+                value={file}
                 onChange={handleChange}
               />
               <UserProfile

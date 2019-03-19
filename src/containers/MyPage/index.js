@@ -7,8 +7,6 @@ import FileActions from '@/actions/File'
 
 import MyPageComponent from '@/components/MyPage'
 
-import { getTokenFromLocalStorage } from '@/utils/localStorage'
-
 @inject('authStore')
 @observer
 export default class MyPageContainer extends Component {
@@ -28,7 +26,11 @@ export default class MyPageContainer extends Component {
     try {
       const user = await UserActions.getUser()
       const imgUrl = user.profileImage
-      this.setState({ user, imgUrl })
+      this.setState({
+        user,
+        imgUrl,
+        file: ''
+      })
     } catch (err) {
       alert(err.errorMessage || err.message)
     }
@@ -87,14 +89,12 @@ export default class MyPageContainer extends Component {
     const user = { ...this.state.user }
 
     try {
-      // const imageResult = await this.uploadImage()
-      // if (imageResult.status !== 200) {
-      //   throw new Error('이미지 등록에 실패했습니다. 다시 시도해주세요.')
-      // }
+      const imageResult = await this.uploadImage()
+      if (imageResult.status !== 200) {
+        throw new Error('이미지 등록에 실패했습니다. 다시 시도해주세요.')
+      }
 
-      // user.profileImage = imageResult.body.url
-
-      console.log('user:: ', user)
+      user.profileImage = imageResult.body.url
 
       await UserActions.updateUser({
         name: user.name,
