@@ -73,7 +73,9 @@
     "build-js": "node scripts/build.js",
     "build": "npm-run-all build-js",
     "test": "node scripts/test.js --env=jsdom",
-    "flow": "flow"
+    "flow": "flow",
+    "deploy": "pm2 start ecosystem.config.js --env production",
+    "deploy-public": "pm2 start ecosystem.config.js --env public-develop"
   },
   "jest": {
     "collectCoverageFrom": [
