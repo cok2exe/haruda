@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { LinkButton } from '@/styled-ui'
+import { UserProfile, LinkButton } from '@/styled-ui'
 
 import './style.scss'
 
@@ -9,6 +9,7 @@ export default class NavbarContainer extends Component {
   render() {
     const { user, pathname, logout } = this.props
 
+    console.log('user:: ', user)
     return (
       <div className="navbar">
         <div className="container">
@@ -23,6 +24,15 @@ export default class NavbarContainer extends Component {
             {user && pathname === '/diary' ? (
               <React.Fragment>
                 <b>{user.name}님의 하루다</b>
+                <UserProfile
+                  small="true"
+                  as={Link}
+                  to="/mypage"
+                  style={{
+                    backgroundImage:
+                      user.profileImage && `url(${user.profileImage})`
+                  }}
+                />
                 <LinkButton onClick={logout}>로그아웃</LinkButton>
               </React.Fragment>
             ) : (

@@ -32,6 +32,14 @@ export default {
   },
 
   USERS: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/users`
+    },
+    UPDATE: {
+      method: 'PUT',
+      path: () => `${API_PATH}/users`
+    },
     PASSWORD: {
       method: 'PUT',
       path: () => `${API_PATH}/users/password`

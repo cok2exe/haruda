@@ -1,0 +1,33 @@
+@import '~@/styles/shared/colors.scss';
+
+.section-mypage {
+  text-align: center;
+
+  .mypage__profile {
+    width: 300px;
+    margin: 0 auto;
+    padding: 50px 0 0;
+    border-radius: 15px;
+    background-color: $light-gray;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .mypage__form {
+    margin-bottom: 30px;
+    button {
+      margin-bottom: 20px;
+    }
+    div {
+      padding: 0 20px;
+    }
+  }
+
+  .mypage__btns {
+    button {
+      width: 100%;
+    }
+  }
+}

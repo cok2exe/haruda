@@ -1,7 +1,7 @@
 /**
  * Section common ui
  */
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const SectionTitle = styled.h1`
   margin: 0 0 30px;
@@ -39,4 +39,29 @@ export const SectionForm = styled.div`
       }
     }
   }
+`
+
+export const UserProfile = styled.button`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  background-image: url('/images/common/icon_user.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #fafafa;
+
+  border: 0;
+  outline: 0;
+  padding: 0;
+
+  cursor: pointer;
+
+  ${props =>
+    props.small &&
+    css`
+      width: 30px;
+      height: 30px;
+    `};
 `

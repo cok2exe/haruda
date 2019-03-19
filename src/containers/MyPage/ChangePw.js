@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ChangePwComponent from '@/components/MyPage/ChangePw'
 
-import MyPageActions from '@/actions/MyPage'
+import UserActions from '@/actions/User'
 
 export default class ChangePwdContainer extends Component {
   state = {
@@ -26,7 +26,7 @@ export default class ChangePwdContainer extends Component {
     const { password, newPassword } = this.state
 
     try {
-      await MyPageActions.changePassword({ password, newPassword })
+      await UserActions.changePassword({ password, newPassword })
 
       alert('비밀번호 변경이 완료되었습니다.')
       this.setState({

@@ -22,9 +22,14 @@ img {
   color: $blue;
 }
 
-.navbar + * {
-  min-height: calc(100vh - 80px);
+.user-body {
+  min-height: calc(100vh - 102px);
   padding-top: 60px;
+
+  & > div {
+    min-height: calc(100vh - 162px);
+    padding: 100px 0;
+  }
 }
 
 .container {
