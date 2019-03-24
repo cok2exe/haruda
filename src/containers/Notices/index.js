@@ -61,6 +61,7 @@ class NoticesContainer extends Component {
     return (
       <NoticesComponent
         state={this.state}
+        getNotices={this.getNotices.bind(this)}
         getNoticeById={this.getNoticeById.bind(this)}
       />
     )

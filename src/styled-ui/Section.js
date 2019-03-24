@@ -83,3 +83,23 @@ export const Accordian = styled.div`
     }
   }
 `
+
+export const Pagination = styled.div`
+  text-align: center;
+  margin: 20px 0;
+
+  .page-btn {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0 2.5px;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      border: 1px solid #fff;
+      background-color: #6c5ce7;
+      color: #fff;
+    }
+  }
+`

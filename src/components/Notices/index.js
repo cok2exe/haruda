@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
 import { Accordian } from '@/styled-ui'
 
+import Pagination from '@/components/Common/Pagination'
+
 import dateFormat from '@/utils/dateFormat'
 
 class NoticesComponent extends Component {
   render() {
-    const { notices, notice } = this.props.state
-    const { getNoticeById } = this.props
+    const {
+      page,
+      pageSize,
+      numberOfPages,
+      count,
+
+      notices,
+      notice
+    } = this.props.state
+    const { getNotices, getNoticeById } = this.props
 
     const noticeRows = notices.map((row, index) => {
       return (
@@ -25,6 +35,15 @@ class NoticesComponent extends Component {
       <div className="container">
         <div>공지사항</div>
         {noticeRows}
+        {count > pageSize && (
+          <Pagination
+            page={page}
+            numberOfPages={numberOfPages}
+            prev={true}
+            next={true}
+            getNewPage={getNotices}
+          />
+        )}
       </div>
     )
   }
