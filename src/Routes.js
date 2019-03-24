@@ -43,8 +43,12 @@ const AsyncChangePw = Loadable({
   loader: () => import('./containers/MyPage/ChangePw'),
   loading: LoadingComponent
 })
+const AsyncNotices = Loadable({
+  loader: () => import('./containers/Notices'),
+  loading: LoadingComponent
+})
 
-@inject('authStore', 'sampleMobxStore')
+@inject('authStore')
 @observer
 export default class RouterContainer extends Component {
   state = {
@@ -123,6 +127,12 @@ export default class RouterContainer extends Component {
             path="/mypage/change-pw"
             user={user}
             component={AsyncChangePw}
+            props={this.props}
+          />
+          <AppliedRoute
+            exact
+            path="/notices"
+            component={AsyncNotices}
             props={this.props}
           />
 

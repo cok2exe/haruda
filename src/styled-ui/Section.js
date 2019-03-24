@@ -65,3 +65,21 @@ export const UserProfile = styled.button`
       height: 30px;
     `};
 `
+
+export const Accordian = styled.div`
+  cursor: pointer;
+  padding: 10px;
+
+  .date {
+    float: right;
+  }
+
+  .content {
+    display: none;
+    border-top: 1px solid #000;
+
+    &.active {
+      display: block;
+    }
+  }
+`

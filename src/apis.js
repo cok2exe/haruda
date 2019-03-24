@@ -74,5 +74,16 @@ export default {
       method: 'POST',
       path: () => `${API_PATH}/diaries/valid-password`
     }
+  },
+
+  NOTICES: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/notices`
+    },
+    GET_BY_ID: {
+      method: 'GET',
+      path: ({ id }) => `${API_PATH}/notices/${id}`
+    }
   }
 }
