@@ -69,6 +69,10 @@ export default {
     SEARCH_BY_ID: {
       method: 'GET',
       path: () => `${API_PATH}/diaries/search`
+    },
+    VALID_PASSWORD: {
+      method: 'POST',
+      path: () => `${API_PATH}/diaries/valid-password`
     }
   }
 }

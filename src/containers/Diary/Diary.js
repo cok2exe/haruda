@@ -10,7 +10,9 @@ export default class DiaryContainer extends Component {
     isShowDiarySearchPopup: false,
     step: 1,
     diaryId: '',
-    diary: null
+    diaryPw: '',
+    diary: null,
+    isJoinDiary: false
   }
 
   openDiarySearchPopup = () => {
@@ -21,7 +23,10 @@ export default class DiaryContainer extends Component {
 
   hideDiarySearchPopup = () => {
     this.setState({
-      isShowDiarySearchPopup: false
+      isShowDiarySearchPopup: false,
+      step: 1,
+      diaryId: '',
+      diary: null
     })
   }
 
@@ -41,8 +46,26 @@ export default class DiaryContainer extends Component {
     const diaryId = this.state.diaryId
     try {
       const diary = await DiaryActions.searchDiaryById({ diaryId })
+
+      if (diary) {
+        this.goToStep(2)
+        this.setState({ diary })
+      }
     } catch (err) {
       alert(err.errorMessage || err.message)
+    }
+  }
+
+  async joinDiary() {
+    const { diaryId, diaryPw } = this.state
+
+    try {
+      await DiaryActions.joinDiary({ diaryId, diaryPw })
+    } catch (err) {
+      alert(err.errorMessage || err.message)
+      this.setState({
+        diaryPw: ''
+      })
     }
   }
 
@@ -67,6 +90,7 @@ export default class DiaryContainer extends Component {
             handleChange={this.handleChange}
             searchDiaryById={this.searchDiaryById.bind(this)}
             goToStep={this.goToStep}
+            joinDiary={this.joinDiary.bind(this)}
           />
         )}
       </React.Fragment>
