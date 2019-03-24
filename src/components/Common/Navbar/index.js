@@ -16,6 +16,9 @@ export default class NavbarComponent extends Component {
           <Link to="/">
             <div className="navbar__logo">하루다</div>
           </Link>
+          <Link to="/notices">
+            <div className="">공지사항</div>
+          </Link>
           <div
             className={`navbar__menus ${pathname === 'diaries' ? 'user' : ''}`}
           >
