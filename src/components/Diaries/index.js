@@ -13,7 +13,7 @@ export default class DiariesComponent extends Component {
 
     const diaryRow = diaries.map((diary, index) => {
       return (
-        <Link to={`/diaries/${diary.id}`} key={index}>
+        <Link to={`/diaries/${diary.DiaryId}`} key={index}>
           <div className="diary">
             <div
               className="diary__profile"
