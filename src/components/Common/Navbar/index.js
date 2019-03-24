@@ -5,25 +5,19 @@ import { UserProfile, LinkButton } from '@/styled-ui'
 
 import './style.scss'
 
-export default class NavbarContainer extends Component {
+export default class NavbarComponent extends Component {
   render() {
-    const { user, pathname, logout } = this.props
-
-    console.log('user:: ', user)
+    const { user, path, logout } = this.props
     return (
       <div className="navbar">
         <div className="container">
           <Link to="/">
             <div className="navbar__logo">하루다</div>
           </Link>
-          <div
-            className={`navbar__menus ${
-              user && pathname === '/diary' ? 'user' : ''
-            }`}
-          >
-            {user && pathname === '/diary' ? (
+          <div className={`navbar__menus ${user ? 'user' : ''}`}>
+            {user ? (
               <React.Fragment>
-                <b>{user.name}님의 하루다</b>
+                {path === '/diaries/:id' && <b>{user.name}님의 하루다</b>}
                 <UserProfile
                   small="true"
                   as={Link}
