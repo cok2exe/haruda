@@ -31,6 +31,10 @@ const AsyncDiary = Loadable({
   loader: () => import('./containers/Diary'),
   loading: LoadingComponent
 })
+const AsyncDiaries = Loadable({
+  loader: () => import('./containers/Diaries'),
+  loading: LoadingComponent
+})
 const AsyncMyPage = Loadable({
   loader: () => import('./containers/MyPage'),
   loading: LoadingComponent
@@ -93,6 +97,12 @@ export default class RouterContainer extends Component {
             exact
             path="/find-password"
             component={AsyncFindPassword}
+            props={this.props}
+          />
+          <AppliedRoute
+            exact
+            path="/diaries"
+            component={AsyncDiaries}
             props={this.props}
           />
           <AppliedRoute
