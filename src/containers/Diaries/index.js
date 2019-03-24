@@ -27,7 +27,12 @@ export default class DiariesContainer extends Component {
   }
 
   async componentWillMount() {
-    await this.getUserDiaries()
+    if (this.props.authStore.user) {
+      await this.getUserDiaries()
+    } else {
+      alert('로그인 후 이용가능합니다.')
+      this.props.history.push('/login')
+    }
   }
 
   async getUserDiaries() {
