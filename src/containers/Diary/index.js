@@ -15,17 +15,19 @@ export default class DiaryContainer extends Component {
   async componentWillMount() {
     const validInfo = this.props.diaryStore.validInfo
     if (this.props.authStore.getUser) {
-      const isUserDiary = await this.validUserDiary()
-      if (!isUserDiary) {
-        // 해당 다이어리에 최초 진입하는 유저(마이 리스트에 추가되어있지 않은 경우)
-        if (
-          validInfo.id === +this.props.match.params.id &&
-          validInfo.isValidEnter
-        ) {
-          await this.createUserDiary()
-        } else {
-          alert('해당 다이어리의 권한이 없습니다ㅠㅠ')
-          this.props.history.push('/')
+      const userDiaryResult = await this.validUserDiary()
+      if (userDiaryResult) {
+        if (!userDiaryResult.isUserDiary) {
+          // 해당 다이어리에 최초 진입하는 유저(마이 리스트에 추가되어있지 않은 경우)
+          if (
+            validInfo.id === +this.props.match.params.id &&
+            validInfo.isValidEnter
+          ) {
+            await this.createUserDiary()
+          } else {
+            alert('해당 다이어리의 권한이 없습니다ㅠㅠ')
+            this.props.history.push('/')
+          }
         }
       }
     } else {
@@ -46,10 +48,11 @@ export default class DiaryContainer extends Component {
         DiaryId: this.props.match.params.id
       })
 
-      return result.isUserDiary
+      return result
     } catch (err) {
       alert(err.errorMessage || err.message)
       this.props.history.push('/')
+      return null
     }
   }
 
