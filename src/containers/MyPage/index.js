@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 
 import UserActions from '@/actions/User'
-import AuthActions from '@/actions/Auth'
 import FileActions from '@/actions/File'
 
 import MyPageComponent from '@/components/MyPage'
@@ -60,7 +59,6 @@ export default class MyPageContainer extends Component {
   }
 
   readFile = file => {
-    console.log('file', file)
     if (file) {
       let reader = new FileReader()
       reader.readAsDataURL(file)
@@ -87,14 +85,19 @@ export default class MyPageContainer extends Component {
 
   async updateUser() {
     const user = { ...this.state.user }
+    const { file, imgUrl } = this.state
 
     try {
-      const imageResult = await this.uploadImage()
-      if (imageResult.status !== 200) {
-        throw new Error('이미지 등록에 실패했습니다. 다시 시도해주세요.')
-      }
+      if (file) {
+        const imageResult = await this.uploadImage()
+        if (imageResult.status !== 200) {
+          throw new Error('이미지 등록에 실패했습니다. 다시 시도해주세요.')
+        }
 
-      user.profileImage = imageResult.body.url
+        user.profileImage = imageResult.body.url
+      } else {
+        user.profileImage = imgUrl
+      }
 
       await UserActions.updateUser({
         name: user.name,
