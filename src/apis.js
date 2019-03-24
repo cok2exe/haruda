@@ -31,6 +31,25 @@ export default {
     }
   },
 
+  USER_DIARIES: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/user-diaries`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/user-diaries`
+    },
+    VALID_USER_DIARY: {
+      method: 'POST',
+      path: () => `${API_PATH}/user-diaries/valid`
+    },
+    DELETE: {
+      method: 'DELETE',
+      path: () => `${API_PATH}/user-diaries`
+    }
+  },
+
   USERS: {
     GET: {
       method: 'GET',

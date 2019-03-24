@@ -95,10 +95,9 @@ export default class RouterContainer extends Component {
             component={AsyncFindPassword}
             props={this.props}
           />
-          <ProtectedRoute
+          <AppliedRoute
             exact
-            path="/diary"
-            user={user}
+            path="/diaries/:id"
             component={AsyncDiary}
             props={this.props}
           />
