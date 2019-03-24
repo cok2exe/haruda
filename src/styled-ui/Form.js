@@ -61,6 +61,11 @@ export const FormControl = styled.input`
   font-size: 15px;
   outline: 0;
   width: 100%;
+  transition: 0.3s;
+
+  &:focus {
+    border-color: #a29bfe;
+  }
 `
 
 // export default { Button, LinkButton, FormGroup, FormControl }

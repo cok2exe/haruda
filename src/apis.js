@@ -44,5 +44,12 @@ export default {
       method: 'PUT',
       path: () => `${API_PATH}/users/password`
     }
+  },
+
+  DIARIES: {
+    SEARCH_BY_ID: {
+      method: 'GET',
+      path: () => `${API_PATH}/diaries/search`
+    }
   }
 }

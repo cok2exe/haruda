@@ -1,0 +1,31 @@
+@import '~@/styles/shared/colors.scss';
+
+.section-diary {
+  ul.diary__tab {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 20px;
+
+      width: calc(100% / 3);
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 0;
+
+      border-bottom: 3px solid $gray;
+
+      &.active {
+        border-bottom-color: $purple;
+        color: $purple;
+      }
+    }
+  }
+
+  .diary__content {
+    padding: 50px 0;
+  }
+}

@@ -1,8 +1,23 @@
 import React, { Component } from 'react'
-import DiaryComponent from '@/components/Diary'
+import DiaryMainComponent from '@/components/Diary'
 
 export default class DiaryContainer extends Component {
+  state = {
+    selectedDiaryTab: 'diary'
+  }
+
+  selectDiaryTab = tab => {
+    this.setState({
+      selectedDiaryTab: tab
+    })
+  }
+
   render() {
-    return <DiaryComponent />
+    return (
+      <DiaryMainComponent
+        state={this.state}
+        selectDiaryTab={this.selectDiaryTab}
+      />
+    )
   }
 }
