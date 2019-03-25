@@ -27,7 +27,9 @@ class QnasComponent extends Component {
 
     const qnaRows = qnas.map((qna, index) => {
       return (
-        <Accordian key={index} onClick={() => toggleQnaAccordian(qna.id)}
+        <Accordian
+          key={index}
+          onClick={() => toggleQnaAccordian(qna.id)}
           className={selectedId === qna.id ? 'active' : ''}
         >
           <div className="accordian__title">
@@ -35,11 +37,13 @@ class QnasComponent extends Component {
             <span className="date">
               {dateFormat(qna.createdAt)}
               {/* 추후 아이콘으로 바뀌었으면 좋겠음 ㅠㅠ */}
-              <Button onClick={e => openQnaPopup(e, qna)}>수정</Button>
+              {qna.answer && (
+                <Button onClick={e => openQnaPopup(e, qna)}>수정</Button>
+              )}
               <Button onClick={e => deleteQnaById(e, qna.id)}>삭제</Button>
             </span>
           </div>
-          <div className='accordian__content'>
+          <div className="accordian__content">
             <div className="qna qna_question">{qna.question}</div>
             <div className="qna qna_answer">
               {qna.answer

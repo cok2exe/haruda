@@ -71,17 +71,13 @@ class QnasContainer extends Component {
 
   openQnaPopup = (e, selectedQna) => {
     e.stopPropagation()
+
     let qna = {
       title: '',
       question: ''
     }
 
     if (selectedQna) {
-      if (selectedQna.answer) {
-        return alert(
-          '답변이 달린 질문은 수정하실 수 없습니다ㅠㅠ\n새로 추가해주세요.'
-        )
-      }
       qna = selectedQna
     }
 
