@@ -17,7 +17,7 @@ export default class MyPageContainer extends Component {
     imgUrl: ''
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     await this.getUser()
   }
 

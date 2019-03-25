@@ -26,7 +26,7 @@ export default class DiariesContainer extends Component {
     numberOfPages: 0
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     if (this.props.authStore.user) {
       await this.getUserDiaries()
     } else {

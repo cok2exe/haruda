@@ -17,7 +17,7 @@ class NoticesContainer extends Component {
     notice: null
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     await this.getNotices(1)
   }
 

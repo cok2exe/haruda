@@ -12,7 +12,7 @@ export default class DiaryContainer extends Component {
     selectedDiaryTab: 'diary'
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const validInfo = this.props.diaryStore.validInfo
     if (this.props.authStore.getUser) {
       const userDiaryResult = await this.validUserDiary()
