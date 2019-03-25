@@ -68,4 +68,20 @@ export const FormControl = styled.input`
   }
 `
 
+// input
+export const FormTextarea = styled.textarea`
+  border-radius: 3px;
+  border: 1px solid #b2bec3;
+  padding: 5px 10px;
+  height: 200px;
+  font-size: 15px;
+  outline: 0;
+  width: 100%;
+  transition: 0.3s;
+
+  &:focus {
+    border-color: #a29bfe;
+  }
+`
+
 // export default { Button, LinkButton, FormGroup, FormControl }

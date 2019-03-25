@@ -76,6 +76,25 @@ export default {
     }
   },
 
+  QNAS: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/qnas`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/qnas`
+    },
+    UPDATE_BY_ID: {
+      method: 'PUT',
+      path: ({ id }) => `${API_PATH}/qnas/${id}`
+    },
+    DELETE_BY_ID: {
+      method: 'DELETE',
+      path: ({ id }) => `${API_PATH}/qnas/${id}`
+    }
+  },
+
   NOTICES: {
     GET: {
       method: 'GET',

@@ -1,0 +1,22 @@
+.qnas-container {
+  .section-btn {
+    text-align: right;
+    margin: 10px 0;
+  }
+  .qna {
+    padding: 10px 0;
+    white-space: pre-wrap;
+
+    &_answer {
+      border-top: 1px solid #000;
+    }
+  }
+}
+
+.popup--qna {
+  .popup-body {
+    p {
+      margin-bottom: 20px;
+    }
+  }
+}

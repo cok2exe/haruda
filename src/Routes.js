@@ -47,6 +47,10 @@ const AsyncNotices = Loadable({
   loader: () => import('./containers/Notices'),
   loading: LoadingComponent
 })
+const AsyncQnas = Loadable({
+  loader: () => import('./containers/Qnas'),
+  loading: LoadingComponent
+})
 
 @inject('authStore')
 @observer
@@ -133,6 +137,13 @@ export default class RouterContainer extends Component {
             exact
             path="/notices"
             component={AsyncNotices}
+            props={this.props}
+          />
+          <ProtectedRoute
+            exact
+            path="/qnas"
+            user={user}
+            component={AsyncQnas}
             props={this.props}
           />
 

@@ -19,6 +19,11 @@ export default class NavbarComponent extends Component {
           <Link to="/notices">
             <div className="">공지사항</div>
           </Link>
+          {user && (
+            <Link to="/qnas">
+              <div className="">QnA</div>
+            </Link>
+          )}
           <div
             className={`navbar__menus ${pathname === 'diaries' ? 'user' : ''}`}
           >
