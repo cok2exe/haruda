@@ -7,7 +7,7 @@ import './style.scss'
 export default class DiaryMainComponent extends Component {
   render() {
     const { selectedDiaryTab } = this.props.state
-    const { selectDiaryTab } = this.props
+    const { diaryId, selectDiaryTab } = this.props
 
     return (
       <div className="section-diary">
@@ -38,7 +38,7 @@ export default class DiaryMainComponent extends Component {
           <div className="diary__search-bar" />
 
           {/* 다이어리 */}
-          {selectedDiaryTab === 'diary' && <DiaryContainer />}
+          {selectedDiaryTab === 'diary' && <DiaryContainer diaryId={diaryId} />}
           {/* 일정 */}
           {/* 투두리스트 */}
         </div>

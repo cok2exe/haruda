@@ -85,5 +85,12 @@ export default {
       method: 'GET',
       path: ({ id }) => `${API_PATH}/notices/${id}`
     }
+  },
+
+  DIARY_CONTENTS: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/diary-contents`
+    }
   }
 }

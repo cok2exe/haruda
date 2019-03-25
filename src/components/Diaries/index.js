@@ -36,7 +36,12 @@ export default class DiariesComponent extends Component {
     return (
       <div className="section-diaries">
         <div className="container">
-          <Button onClick={openDiarySearchPopup}>다이어리 검색</Button>
+          <div className="text-right">
+            <Button onClick={openDiarySearchPopup}>
+              다이어리 검색{' '}
+              <img src="/images/common/icon_search.png" alt="search" />
+            </Button>
+          </div>
           <div className="diaries">{diaryRow}</div>
         </div>
       </div>

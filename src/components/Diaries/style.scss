@@ -2,7 +2,6 @@
 
 .section-diaries {
   .diary {
-    margin-bottom: 10px;
     padding: 10px 0;
     border-bottom: 1px solid $gray;
 
@@ -10,8 +9,8 @@
     cursor: pointer;
 
     &__profile {
-      width: 150px;
-      height: 150px;
+      width: 100px;
+      height: 100px;
       margin-right: 15px;
       background-repeat: no-repeat;
       background-size: cover;
@@ -23,8 +22,13 @@
       flex: 1;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &__title {
+      font-weight: bold;
+    }
+  }
+
+  a:last-child {
+    .diary {
       border-bottom: 0;
     }
   }

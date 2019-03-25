@@ -7,7 +7,7 @@ import DiaryMainComponent from '@/components/Diary'
 
 @inject('authStore', 'diaryStore')
 @observer
-export default class DiaryContainer extends Component {
+export default class DiaryMainContainer extends Component {
   state = {
     selectedDiaryTab: 'diary'
   }
@@ -77,6 +77,7 @@ export default class DiaryContainer extends Component {
     return (
       <DiaryMainComponent
         state={this.state}
+        diaryId={+this.props.match.params.id}
         selectDiaryTab={this.selectDiaryTab}
       />
     )
