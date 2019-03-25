@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Accordian } from '@/styled-ui'
+import { SectionTitle, Accordian } from '@/styled-ui'
 
 import Pagination from '@/components/Common/Pagination'
 
 import dateFormat from '@/utils/dateFormat'
+
+import './style.scss'
 
 class NoticesComponent extends Component {
   render() {
@@ -20,30 +22,34 @@ class NoticesComponent extends Component {
 
     const noticeRows = notices.map((row, index) => {
       return (
-        <Accordian key={index} onClick={() => getNoticeById(row.id)}>
-          {row.title}
-          <span className="date">{dateFormat(row.createdAt)}</span>
-          {notice && (
-            <div className={`content ${notice.id === row.id ? 'active' : ''}`}>
-              {notice.content}
-            </div>
-          )}
+        <Accordian
+          key={index}
+          onClick={() => getNoticeById(row.id)}
+          className={(notice && notice.id) === row.id ? 'active' : ''}
+        >
+          <div className="accordian__title">
+            <span>{row.title}</span>
+            <span className="date">{dateFormat(row.createdAt)}</span>
+          </div>
+          <div className="accordian__content">{notice && notice.content}</div>
         </Accordian>
       )
     })
     return (
-      <div className="container">
-        <div>공지사항</div>
-        {noticeRows}
-        {count > pageSize && (
-          <Pagination
-            page={page}
-            numberOfPages={numberOfPages}
-            prev={true}
-            next={true}
-            getNewPage={getNotices}
-          />
-        )}
+      <div className="section-notice">
+        <div className="container">
+          <SectionTitle>공지사항</SectionTitle>
+          {noticeRows}
+          {count > pageSize && (
+            <Pagination
+              page={page}
+              numberOfPages={numberOfPages}
+              prev={true}
+              next={true}
+              getNewPage={getNotices}
+            />
+          )}
+        </div>
       </div>
     )
   }

@@ -68,18 +68,53 @@ export const UserProfile = styled.button`
 
 export const Accordian = styled.div`
   cursor: pointer;
-  padding: 10px;
+  border-bottom: 1px solid #b2bec3;
 
-  .date {
-    float: right;
+  .accordian__title {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 10px;
+    transition: 0.3s;
+
+    span:first-child {
+      flex: 1;
+      margin-right: 10px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      background-color: #a29bfe;
+
+      & > * {
+        color: #ffffff;
+      }
+    }
   }
 
-  .content {
-    display: none;
-    border-top: 1px solid #000;
+  .accordian__content {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: 0.3s;
+    text-align: left;
+  }
 
-    &.active {
-      display: block;
+  &.active {
+    .accordian__title {
+      background-color: #6c5ce7;
+      & > * {
+        color: #ffffff;
+      }
+    }
+    .accordian__content {
+      opacity: 1;
+      visibility: visible;
+      height: 300px;
+      overflow-y: auto;
+      padding: 10px;
     }
   }
 `
