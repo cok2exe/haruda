@@ -15,5 +15,19 @@ export default {
           else resolve(res.body)
         })
     )
+  },
+
+  joinDiary: async function({ diaryId, diaryPw }) {
+    return new Promise((resolve, reject) =>
+      request(
+        APIS.DIARIES.VALID_PASSWORD.method,
+        APIS.DIARIES.VALID_PASSWORD.path()
+      )
+        .send({ diaryId, diaryPw })
+        .end((err, res) => {
+          if (err) reject(res.body)
+          else resolve(res.body)
+        })
+    )
   }
 }

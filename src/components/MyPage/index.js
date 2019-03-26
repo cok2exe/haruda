@@ -21,13 +21,15 @@ export default class MyPageComponent extends Component {
           <SectionTitle>마이페이지</SectionTitle>
           <div className="mypage__profile">
             <div className="mypage__form">
-              <FormControl
-                type="file"
-                accept="image/*"
-                name="profileImage"
-                value={file}
-                onChange={handleChange}
-              />
+              {isEditMode && (
+                <FormControl
+                  type="file"
+                  accept="image/*"
+                  name="profileImage"
+                  value={file}
+                  onChange={handleChange}
+                />
+              )}
               <UserProfile
                 style={{
                   backgroundImage: imgUrl && `url(${imgUrl})`

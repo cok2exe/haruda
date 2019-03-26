@@ -19,7 +19,7 @@ export default class NavbarContainer extends Component {
     return (
       <NavbarComponent
         user={user}
-        pathname={this.props.location.pathname}
+        path={this.props.match.path}
         logout={this.logout}
       />
     )

@@ -31,6 +31,25 @@ export default {
     }
   },
 
+  USER_DIARIES: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/user-diaries`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/user-diaries`
+    },
+    VALID_USER_DIARY: {
+      method: 'POST',
+      path: () => `${API_PATH}/user-diaries/valid`
+    },
+    DELETE: {
+      method: 'DELETE',
+      path: () => `${API_PATH}/user-diaries`
+    }
+  },
+
   USERS: {
     GET: {
       method: 'GET',
@@ -50,6 +69,47 @@ export default {
     SEARCH_BY_ID: {
       method: 'GET',
       path: () => `${API_PATH}/diaries/search`
+    },
+    VALID_PASSWORD: {
+      method: 'POST',
+      path: () => `${API_PATH}/diaries/valid-password`
+    }
+  },
+
+  QNAS: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/qnas`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/qnas`
+    },
+    UPDATE_BY_ID: {
+      method: 'PUT',
+      path: ({ id }) => `${API_PATH}/qnas/${id}`
+    },
+    DELETE_BY_ID: {
+      method: 'DELETE',
+      path: ({ id }) => `${API_PATH}/qnas/${id}`
+    }
+  },
+
+  NOTICES: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/notices`
+    },
+    GET_BY_ID: {
+      method: 'GET',
+      path: ({ id }) => `${API_PATH}/notices/${id}`
+    }
+  },
+
+  DIARY_CONTENTS: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/diary-contents`
     }
   }
 }

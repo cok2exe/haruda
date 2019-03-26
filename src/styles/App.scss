@@ -15,6 +15,13 @@ img {
   vertical-align: middle;
 }
 
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
 /**
  * colors
  */
@@ -26,14 +33,14 @@ img {
   min-height: calc(100vh - 102px);
   padding-top: 60px;
 
-  & > div {
-    min-height: calc(100vh - 162px);
-    padding: 100px 0;
-  }
+  // & > div {
+  //   min-height: calc(100vh - 162px);
+  //   padding: 100px 0;
+  // }
 }
 
 .container {
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 0 10px;
   width: 100%;
 

@@ -1,0 +1,35 @@
+@import '~@/styles/shared/colors.scss';
+
+.section-diaries {
+  .diary {
+    padding: 10px 0;
+    border-bottom: 1px solid $gray;
+
+    display: flex;
+    cursor: pointer;
+
+    &__profile {
+      width: 100px;
+      height: 100px;
+      margin-right: 15px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-color: $gray;
+    }
+
+    &__info {
+      flex: 1;
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+  }
+
+  a:last-child {
+    .diary {
+      border-bottom: 0;
+    }
+  }
+}

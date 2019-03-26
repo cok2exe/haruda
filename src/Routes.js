@@ -31,6 +31,10 @@ const AsyncDiary = Loadable({
   loader: () => import('./containers/Diary'),
   loading: LoadingComponent
 })
+const AsyncDiaries = Loadable({
+  loader: () => import('./containers/Diaries'),
+  loading: LoadingComponent
+})
 const AsyncMyPage = Loadable({
   loader: () => import('./containers/MyPage'),
   loading: LoadingComponent
@@ -39,8 +43,16 @@ const AsyncChangePw = Loadable({
   loader: () => import('./containers/MyPage/ChangePw'),
   loading: LoadingComponent
 })
+const AsyncNotices = Loadable({
+  loader: () => import('./containers/Notices'),
+  loading: LoadingComponent
+})
+const AsyncQnas = Loadable({
+  loader: () => import('./containers/Qnas'),
+  loading: LoadingComponent
+})
 
-@inject('authStore', 'sampleMobxStore')
+@inject('authStore')
 @observer
 export default class RouterContainer extends Component {
   state = {
@@ -95,10 +107,15 @@ export default class RouterContainer extends Component {
             component={AsyncFindPassword}
             props={this.props}
           />
-          <ProtectedRoute
+          <AppliedRoute
             exact
-            path="/diary"
-            user={user}
+            path="/diaries"
+            component={AsyncDiaries}
+            props={this.props}
+          />
+          <AppliedRoute
+            exact
+            path="/diaries/:id"
             component={AsyncDiary}
             props={this.props}
           />
@@ -114,6 +131,19 @@ export default class RouterContainer extends Component {
             path="/mypage/change-pw"
             user={user}
             component={AsyncChangePw}
+            props={this.props}
+          />
+          <AppliedRoute
+            exact
+            path="/notices"
+            component={AsyncNotices}
+            props={this.props}
+          />
+          <ProtectedRoute
+            exact
+            path="/qnas"
+            user={user}
+            component={AsyncQnas}
             props={this.props}
           />
 

@@ -65,3 +65,76 @@ export const UserProfile = styled.button`
       height: 30px;
     `};
 `
+
+export const Accordian = styled.div`
+  cursor: pointer;
+  border-bottom: 1px solid #b2bec3;
+
+  .accordian__title {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 10px;
+    transition: 0.3s;
+
+    span:first-child {
+      flex: 1;
+      margin-right: 10px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      background-color: #a29bfe;
+
+      & > * {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .accordian__content {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: 0.3s;
+    text-align: left;
+  }
+
+  &.active {
+    .accordian__title {
+      background-color: #6c5ce7;
+      & > * {
+        color: #ffffff;
+      }
+    }
+    .accordian__content {
+      opacity: 1;
+      visibility: visible;
+      height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+  }
+`
+
+export const Pagination = styled.div`
+  text-align: center;
+  margin: 20px 0;
+
+  .page-btn {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0 2.5px;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      border: 1px solid #fff;
+      background-color: #6c5ce7;
+      color: #fff;
+    }
+  }
+`
