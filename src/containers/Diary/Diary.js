@@ -53,8 +53,6 @@ export default class DiaryContainer extends Component {
 
   async getDiaryById(id) {
     if (this.state.activeDiaryId !== id) {
-      const activeDiary = document.getElementById(`diary-${id}`)
-      window.scrollTo(0, activeDiary.offsetTop - 60)
       try {
         const diary = await DiaryContentsActions.getDiaryById({ id })
         console.log('diary:: ', diary)
@@ -63,6 +61,8 @@ export default class DiaryContainer extends Component {
           diary,
           activeDiaryId: id
         })
+        const activeDiary = document.getElementById(`diary-${id}`)
+        window.scrollTo(0, activeDiary.offsetTop - 60)
       } catch (err) {
         alert(err.errorMessage || err.message)
       }
