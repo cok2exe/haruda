@@ -55,6 +55,7 @@ export default class DiaryContainer extends Component {
     if (this.state.activeDiaryId !== id) {
       try {
         const diary = await DiaryContentsActions.getDiaryById({ id })
+        console.log('diary:: ', diary)
 
         this.setState({
           diary,

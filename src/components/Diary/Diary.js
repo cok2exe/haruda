@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+
+import DiaryDetail from './DiaryDetail'
+
 import dateFormat from '@/utils/dateFormat'
 import { feelings, weathers } from '@/utils/diaryElements'
 
@@ -6,7 +9,6 @@ export default class DiaryComponent extends Component {
   render() {
     const { diaries, diary, activeDiaryId } = this.props.state
     const { getDiariesById, getDiaryById } = this.props
-    console.log(activeDiaryId)
 
     const diaryRows = diaries.map((timeline, index) => {
       return (
@@ -23,9 +25,11 @@ export default class DiaryComponent extends Component {
                     activeDiaryId === content.id ? 'open' : ''
                   }`}
                   key={cIdx}
-                  onClick={() => getDiaryById(content.id)}
                 >
-                  <div className="diary__info">
+                  <div
+                    className="diary__info"
+                    onClick={() => getDiaryById(content.id)}
+                  >
                     <div className="diary__title">
                       {content.title} {feelings(content.feeling)}{' '}
                       {weathers(content.weather)}
@@ -37,7 +41,7 @@ export default class DiaryComponent extends Component {
 
                   {diary &&
                     activeDiaryId === content.id && (
-                      <div className="diary__content">{diary.content}</div>
+                      <DiaryDetail diary={diary} />
                     )}
                 </div>
               )

@@ -35,8 +35,12 @@
       border-bottom: 1px solid $light-purple;
 
       &.open {
+        .diary__info {
+          border-left-color: $skyblue;
+        }
         .diary__info:after {
           transform: rotate(-180deg) translateY(50%);
+          color: $skyblue;
         }
       }
 
@@ -74,9 +78,18 @@
       }
       &__content {
         padding: 30px;
+
+        .diary__thumbnail {
+          width: 100%;
+          height: 400px;
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
       }
 
       &-panel {
+        margin-bottom: 50px;
         &__date {
           padding: 10px 0;
           border-bottom: 2px solid $purple;
