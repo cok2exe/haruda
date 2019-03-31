@@ -5,7 +5,7 @@ export default class DiaryDetail extends Component {
   render() {
     const { diary } = this.props
     const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -28,7 +28,7 @@ export default class DiaryDetail extends Component {
             })}
           </Slider>
         )}
-        {diary.content}
+        <p>{diary.content}</p>
       </div>
     )
   }
