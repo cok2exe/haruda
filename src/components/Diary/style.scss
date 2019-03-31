@@ -28,4 +28,42 @@
   .diary__content {
     padding: 50px 0;
   }
+
+  .diary__todo-list {
+    .list-wrapper {
+      display: flex;
+
+      .list {
+        flex: 1;
+        padding: 0 5px;
+
+        &.incompleted {
+          border-right: 1px solid #000;
+        }
+
+        .todo {
+          border: 1px solid #000;
+          padding: 10px;
+          border-radius: 10px;
+          margin: 15px 0;
+          display: flex;
+
+          .profile {
+            margin-right: 15px;
+          }
+
+          .content {
+            flex: auto;
+
+            .btns {
+              text-align: right;
+            }
+          }
+          .title {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
 }

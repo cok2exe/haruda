@@ -111,5 +111,24 @@ export default {
       method: 'GET',
       path: () => `${API_PATH}/diary-contents`
     }
+  },
+
+  DIARY_TODO_LIST: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/diary-todo-lists`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/diary-todo-lists`
+    },
+    UPDATE: {
+      method: 'PUT',
+      path: () => `${API_PATH}/diary-todo-lists`
+    },
+    DELETE_BY_ID: {
+      method: 'DELETE',
+      path: ({ id }) => `${API_PATH}/diary-todo-lists/${id}`
+    }
   }
 }

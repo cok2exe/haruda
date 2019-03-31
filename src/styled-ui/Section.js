@@ -64,6 +64,13 @@ export const UserProfile = styled.button`
       width: 30px;
       height: 30px;
     `};
+
+  ${props =>
+    props.medium &&
+    css`
+      width: 60px;
+      height: 60px;
+    `};
 `
 
 export const Accordian = styled.div`
