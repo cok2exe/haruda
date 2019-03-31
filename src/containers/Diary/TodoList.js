@@ -1,16 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { inject, observer } from 'mobx-react'
 
 import DiaryTodoListActions from '@/actions/DiaryTodoList'
 
 import DiaryTodoListComponent from '@/components/Diary/TodoList'
+import DiaryTodoListPopup from '@/components/Diary/Popups/TodoList'
 
 @inject('authStore')
 @observer
 export default class DiaryTodoListContainer extends Component {
   state = {
     todoList: [],
-    completedTodoList: []
+    completedTodoList: [],
+
+    todo: null,
+    isEditMode: false,
+    isShowTodoListPopup: false
   }
 
   async componentDidMount() {
@@ -64,14 +69,71 @@ export default class DiaryTodoListContainer extends Component {
     }
   }
 
+  openPopup = todo => {
+    this.setState({
+      todo: todo ? todo : { title: '' },
+      isShowTodoListPopup: true,
+      isEditMode: !!todo
+    })
+  }
+
+  hidePopup = () => {
+    this.setState({
+      todo: null,
+      isShowTodoListPopup: false,
+      isEditMode: false
+    })
+  }
+
+  handleChange = e => {
+    const todo = { ...this.state.todo }
+    if (e.target.name) {
+      todo[e.target.name] = e.target.value
+    }
+    this.setState({
+      todo
+    })
+  }
+
+  async confirmPopup() {
+    try {
+      const { todo, isEditMode } = this.state
+      if (!todo.title) throw new Error('제목을 입력해주세요ㅠ')
+
+      if (isEditMode) {
+        await DiaryTodoListActions.updateDiaryTodoList({ todo })
+      } else {
+        todo.DiaryId = this.props.diaryId
+        await DiaryTodoListActions.createDiaryTodoList({ todo })
+      }
+
+      await this.getDiaryTodoList()
+      this.hidePopup()
+      alert(isEditMode ? '수정 되었습니다!' : '추가 되었습니다!')
+    } catch (err) {
+      alert(err.errorMessage || err.message)
+    }
+  }
+
   render() {
     return (
-      <DiaryTodoListComponent
-        state={this.state}
-        user={this.props.authStore.user}
-        completeTodoList={this.completeTodoList.bind(this)}
-        deleteDiaryTodoList={this.deleteDiaryTodoList.bind(this)}
-      />
+      <Fragment>
+        <DiaryTodoListComponent
+          state={this.state}
+          user={this.props.authStore.user}
+          completeTodoList={this.completeTodoList.bind(this)}
+          deleteDiaryTodoList={this.deleteDiaryTodoList.bind(this)}
+          openPopup={this.openPopup}
+        />
+        {this.state.isShowTodoListPopup && (
+          <DiaryTodoListPopup
+            state={this.state}
+            handleChange={this.handleChange}
+            hidePopup={this.hidePopup}
+            confirmPopup={this.confirmPopup.bind(this)}
+          />
+        )}
+      </Fragment>
     )
   }
 }
