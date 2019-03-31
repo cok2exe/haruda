@@ -53,6 +53,8 @@ export default class DiaryContainer extends Component {
 
   async getDiaryById(id) {
     if (this.state.activeDiaryId !== id) {
+      const activeDiary = document.getElementById(`diary-${id}`)
+      window.scrollTo(0, activeDiary.offsetTop - 60)
       try {
         const diary = await DiaryContentsActions.getDiaryById({ id })
         console.log('diary:: ', diary)

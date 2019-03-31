@@ -28,6 +28,7 @@ export default class DiaryComponent extends Component {
                 >
                   <div
                     className="diary__info"
+                    id={`diary-${content.id}`}
                     onClick={() => getDiaryById(content.id)}
                   >
                     <div className="diary__title">
