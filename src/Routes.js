@@ -10,6 +10,7 @@ import { getTokenFromLocalStorage } from '@/utils/localStorage'
 import AppliedRoute from './components/AppliedRoute'
 import ProtectedRoute from './components/ProtectedRoute'
 import ProtectedAdminRoute from './components/ProtectedAdminRoute'
+import RedirectAdminRoute from './components/RedirectAdminRoute'
 import LoadingComponent from './components/LoadingComponent'
 
 const AsyncHome = Loadable({
@@ -162,6 +163,8 @@ export default class RouterContainer extends Component {
             component={AsyncQnas}
             props={this.props}
           />
+          {/* 관리자 route */}
+          <RedirectAdminRoute exact path="/admin" user={user} />
           <ProtectedAdminRoute
             exact
             path="/admin/notices"
