@@ -110,6 +110,10 @@ export default {
     GET: {
       method: 'GET',
       path: () => `${API_PATH}/diary-contents`
+    },
+    GET_BY_ID: {
+      method: 'GEt',
+      path: ({ id }) => `${API_PATH}/diary-contents/${id}`
     }
   },
 

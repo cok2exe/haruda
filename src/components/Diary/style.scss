@@ -25,8 +25,71 @@
     }
   }
 
-  .diary__content {
-    padding: 50px 0;
+  // .diary__content {
+  //   padding: 50px 0;
+  // }
+
+  // diary
+  .diary-timeline {
+    .diary {
+      border-bottom: 1px solid $light-purple;
+
+      &.open {
+        .diary__info:after {
+          transform: rotate(-180deg) translateY(50%);
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &__info {
+        padding: 20px 0 20px 30px;
+        border-left: 30px solid $light-purple;
+        cursor: pointer;
+        position: relative;
+
+        &:after {
+          transition: 0.3s;
+          content: '\f107';
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 800;
+          font-size: 30px;
+          color: $purple;
+
+          position: absolute;
+          top: 50%;
+          right: 25px;
+          transform: translateY(-50%);
+        }
+      }
+
+      &__title {
+        font-size: 20px;
+        margin-bottom: 10px;
+        & > * {
+          vertical-align: middle;
+        }
+      }
+      &__content {
+        padding: 30px;
+      }
+
+      &-panel {
+        &__date {
+          padding: 10px 0;
+          border-bottom: 2px solid $purple;
+          font-size: 30px;
+          font-weight: bold;
+          color: $purple;
+        }
+
+        &__rows {
+          // padding: 10px 0;
+        }
+      }
+    }
   }
 
   .diary__todo-list {
