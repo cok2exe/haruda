@@ -9,6 +9,7 @@ import { getTokenFromLocalStorage } from '@/utils/localStorage'
 /* Import the components */
 import AppliedRoute from './components/AppliedRoute'
 import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedAdminRoute from './components/ProtectedAdminRoute'
 import LoadingComponent from './components/LoadingComponent'
 
 const AsyncHome = Loadable({
@@ -49,6 +50,11 @@ const AsyncNotices = Loadable({
 })
 const AsyncQnas = Loadable({
   loader: () => import('./containers/Qnas'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminNotices = Loadable({
+  loader: () => import('./containers/Admin/Notices'),
   loading: LoadingComponent
 })
 
@@ -144,6 +150,14 @@ export default class RouterContainer extends Component {
             path="/qnas"
             user={user}
             component={AsyncQnas}
+            props={this.props}
+          />
+
+          <ProtectedAdminRoute
+            exact
+            path="/admin/notices"
+            user={user}
+            component={AsyncAdminNotices}
             props={this.props}
           />
 

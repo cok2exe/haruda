@@ -134,5 +134,30 @@ export default {
       method: 'DELETE',
       path: ({ id }) => `${API_PATH}/diary-todo-lists/${id}`
     }
+  },
+
+  ADMIN: {
+    NOTICES: {
+      GET: {
+        method: 'GET',
+        path: () => `${API_PATH}/admin/notices`
+      },
+      GET_BY_ID: {
+        method: 'GET',
+        path: ({ id }) => `${API_PATH}/admin/notices/${id}`
+      },
+      CREATE: {
+        method: 'POST',
+        path: () => `${API_PATH}/admin/notices`
+      },
+      UPDATE_BY_ID: {
+        method: 'PUT',
+        path: ({ id }) => `${API_PATH}/admin/notices/${id}`
+      },
+      DELETE_BY_ID: {
+        method: 'DELETE',
+        path: ({ id }) => `${API_PATH}/admin/notices/${id}`
+      }
+    }
   }
 }

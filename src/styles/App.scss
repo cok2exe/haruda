@@ -116,3 +116,26 @@ a {
 
   z-index: 100;
 }
+
+.table {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  border-collapse: collapse;
+
+  th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+}
+
+.mr10 {
+  margin-right: 10px;
+}
