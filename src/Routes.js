@@ -58,6 +58,16 @@ const AsyncAdminNotices = Loadable({
   loading: LoadingComponent
 })
 
+const AsyncAdminNoticeNew = Loadable({
+  loader: () => import('./containers/Admin/NoticeNew'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminNoticeUpdate = Loadable({
+  loader: () => import('./containers/Admin/NoticeUpdate'),
+  loading: LoadingComponent
+})
+
 @inject('authStore')
 @observer
 export default class RouterContainer extends Component {
@@ -152,7 +162,6 @@ export default class RouterContainer extends Component {
             component={AsyncQnas}
             props={this.props}
           />
-
           <ProtectedAdminRoute
             exact
             path="/admin/notices"
@@ -160,7 +169,20 @@ export default class RouterContainer extends Component {
             component={AsyncAdminNotices}
             props={this.props}
           />
-
+          <ProtectedAdminRoute
+            exact
+            path="/admin/notices/new"
+            user={user}
+            component={AsyncAdminNoticeNew}
+            props={this.props}
+          />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/notices/:id"
+            user={user}
+            component={AsyncAdminNoticeUpdate}
+            props={this.props}
+          />
           {/* Finally, catch all unmatched routes */}
           {/* <Route component={AsyncNotFound} /> */}
         </Switch>

@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { SectionTitle, Button } from '@/styled-ui'
 
 import Pagination from '@/components/Common/Pagination'
 
 import dateFormat from '@/utils/dateFormat'
-
-import './style.scss'
 
 class AdminNoticesComponent extends Component {
   render() {
@@ -17,7 +16,7 @@ class AdminNoticesComponent extends Component {
 
       notices
     } = this.props.state
-    const { getNotices, deleteNoticeById, goToUpdate } = this.props
+    const { getNotices, deleteNoticeById } = this.props
 
     const noticeRows = notices.map((notice, index) => {
       return (
@@ -26,7 +25,11 @@ class AdminNoticesComponent extends Component {
           <td>{notice.title}</td>
           <td>{dateFormat(notice.createdAt)}</td>
           <td>
-            <Button className="mr10" onClick={() => goToUpdate(notice.id)}>
+            <Button
+              className="mr10"
+              as={Link}
+              to={`/admin/notices/${notice.id}`}
+            >
               수정
             </Button>
             <Button onClick={() => deleteNoticeById(notice.id)}>삭제</Button>
@@ -36,9 +39,14 @@ class AdminNoticesComponent extends Component {
     })
 
     return (
-      <div className="section-admin-notices">
+      <div className="section-admin notices">
         <div className="container">
           <SectionTitle>공지사항 목록</SectionTitle>
+          <div className="section-btn">
+            <Button as={Link} to="/admin/notices/new">
+              추가
+            </Button>
+          </div>
 
           <table className="table">
             <thead>

@@ -56,17 +56,12 @@ class AdminNoticesConatiner extends Component {
     }
   }
 
-  goToUpdate = id => {
-    this.props.history.push(`/admin/notices/${id}`)
-  }
-
   render() {
     return (
       <AdminNoticesComponent
         state={this.state}
         getNotices={this.getNotices.bind(this)}
         deleteNoticeById={this.deleteNoticeById.bind(this)}
-        goToUpdate={this.goToUpdate}
       />
     )
   }
