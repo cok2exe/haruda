@@ -30,6 +30,7 @@ class QnasComponent extends Component {
         <Accordian
           key={index}
           onClick={() => toggleQnaAccordian(qna.id)}
+          id={`qna-${qna.id}`}
           className={selectedId === qna.id ? 'active' : ''}
         >
           <div className="accordian__title">

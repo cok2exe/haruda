@@ -55,6 +55,9 @@ class QnasContainer extends Component {
     this.setState({
       selectedId: this.state.selectedId === selectedId ? null : selectedId
     })
+
+    const activeQna = document.getElementById(`qna-${selectedId}`)
+    window.scrollTo(0, activeQna.offsetTop - 60)
   }
 
   handleChange = e => {

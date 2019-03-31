@@ -25,6 +25,7 @@ class NoticesComponent extends Component {
         <Accordian
           key={index}
           onClick={() => getNoticeById(row.id)}
+          id={`notice-${row.id}`}
           className={(notice && notice.id) === row.id ? 'active' : ''}
         >
           <div className="accordian__title">
