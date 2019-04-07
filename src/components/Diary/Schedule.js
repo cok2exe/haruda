@@ -31,17 +31,20 @@ export default class DiaryScheduleComponent extends Component {
             </div>
             <div className="schedule__date">{schedule.date}</div>
             <div className="schedule__d-day">
-              {new Date() > new Date(schedule.date) ? '+' : '-'}
-              {dateFns.distanceInWordsStrict(
-                new Date() > new Date(schedule.date)
-                  ? new Date()
-                  : dateFns.addDays(new Date(), -1),
-                new Date(schedule.date),
-                {
-                  locale: koLocale,
-                  unit: 'd'
-                }
-              )}
+              {dateFns.isToday(new Date(schedule.date))
+                ? 'D-day'
+                : `${
+                    new Date() > new Date(schedule.date) ? '+' : '-'
+                  } ${dateFns.distanceInWordsStrict(
+                    new Date() > new Date(schedule.date)
+                      ? new Date()
+                      : dateFns.addDays(new Date(), -1),
+                    new Date(schedule.date),
+                    {
+                      locale: koLocale,
+                      unit: 'd'
+                    }
+                  )}`}
             </div>
           </li>
         )
