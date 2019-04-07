@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 
 import NavbarComponent from '@/components/Common/Navbar'
+import AdminNavbarComponent from '@/components/Common/Navbar/admin'
 
 import { removeTokenFromLocalStorage } from '@/utils/localStorage'
 
@@ -16,7 +17,13 @@ export default class NavbarContainer extends Component {
 
   render() {
     const { user } = this.props.authStore
-    return (
+    return this.props.isAdmin ? (
+      <AdminNavbarComponent
+        user={user}
+        path={this.props.match.path}
+        logout={this.logout}
+      />
+    ) : (
       <NavbarComponent
         user={user}
         path={this.props.match.path}

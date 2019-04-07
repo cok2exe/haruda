@@ -41,5 +41,19 @@ export default {
           else resolve(res)
         })
     )
+  },
+
+  /**
+   * 회원탈퇴
+   */
+  withdrawal: async function() {
+    return new Promise((resolve, reject) =>
+      request(APIS.USERS.WITHDRAWAL.method, APIS.USERS.WITHDRAWAL.path()).end(
+        (err, res) => {
+          if (err) reject(res.body)
+          else resolve(res)
+        }
+      )
+    )
   }
 }

@@ -9,6 +9,8 @@ import { getTokenFromLocalStorage } from '@/utils/localStorage'
 /* Import the components */
 import AppliedRoute from './components/AppliedRoute'
 import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedAdminRoute from './components/ProtectedAdminRoute'
+import RedirectAdminRoute from './components/RedirectAdminRoute'
 import LoadingComponent from './components/LoadingComponent'
 
 const AsyncHome = Loadable({
@@ -43,12 +45,46 @@ const AsyncChangePw = Loadable({
   loader: () => import('./containers/MyPage/ChangePw'),
   loading: LoadingComponent
 })
+const AsyncWithdrawal = Loadable({
+  loader: () => import('./containers/MyPage/Withdrawal'),
+  loading: LoadingComponent
+})
 const AsyncNotices = Loadable({
   loader: () => import('./containers/Notices'),
   loading: LoadingComponent
 })
 const AsyncQnas = Loadable({
   loader: () => import('./containers/Qnas'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminNotices = Loadable({
+  loader: () => import('./containers/Admin/Notices'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminNoticeNew = Loadable({
+  loader: () => import('./containers/Admin/NoticeNew'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminNoticeUpdate = Loadable({
+  loader: () => import('./containers/Admin/NoticeUpdate'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminQnas = Loadable({
+  loader: () => import('./containers/Admin/Qnas'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminQna = Loadable({
+  loader: () => import('./containers/Admin/Qna'),
+  loading: LoadingComponent
+})
+
+const AsyncAdminUsers = Loadable({
+  loader: () => import('./containers/Admin/Users'),
   loading: LoadingComponent
 })
 
@@ -133,6 +169,13 @@ export default class RouterContainer extends Component {
             component={AsyncChangePw}
             props={this.props}
           />
+          <ProtectedRoute
+            exact
+            path="/mypage/withdrawal"
+            user={user}
+            component={AsyncWithdrawal}
+            props={this.props}
+          />
           <AppliedRoute
             exact
             path="/notices"
@@ -146,7 +189,50 @@ export default class RouterContainer extends Component {
             component={AsyncQnas}
             props={this.props}
           />
-
+          {/* 관리자 route */}
+          <RedirectAdminRoute exact path="/admin" user={user} />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/notices"
+            user={user}
+            component={AsyncAdminNotices}
+            props={this.props}
+          />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/notices/new"
+            user={user}
+            component={AsyncAdminNoticeNew}
+            props={this.props}
+          />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/notices/:id"
+            user={user}
+            component={AsyncAdminNoticeUpdate}
+            props={this.props}
+          />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/qnas"
+            user={user}
+            component={AsyncAdminQnas}
+            props={this.props}
+          />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/qnas/:id"
+            user={user}
+            component={AsyncAdminQna}
+            props={this.props}
+          />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/users"
+            user={user}
+            component={AsyncAdminUsers}
+            props={this.props}
+          />
           {/* Finally, catch all unmatched routes */}
           {/* <Route component={AsyncNotFound} /> */}
         </Switch>

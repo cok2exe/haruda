@@ -52,6 +52,8 @@ class NoticesContainer extends Component {
       this.setState({
         notice
       })
+      const activeNotice = document.getElementById(`notice-${id}`)
+      window.scrollTo(0, activeNotice.offsetTop - 60)
     } catch (err) {
       alert(err.errorMessage || err.message)
     }

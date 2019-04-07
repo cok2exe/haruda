@@ -62,6 +62,10 @@ export default {
     PASSWORD: {
       method: 'PUT',
       path: () => `${API_PATH}/users/password`
+    },
+    WITHDRAWAL: {
+      method: 'DELETE',
+      path: () => `${API_PATH}/users/withdrawal`
     }
   },
 
@@ -110,6 +114,98 @@ export default {
     GET: {
       method: 'GET',
       path: () => `${API_PATH}/diary-contents`
+    },
+    GET_BY_ID: {
+      method: 'GEt',
+      path: ({ id }) => `${API_PATH}/diary-contents/${id}`
+    }
+  },
+
+  DIARY_TODO_LIST: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/diary-todo-lists`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/diary-todo-lists`
+    },
+    UPDATE: {
+      method: 'PUT',
+      path: () => `${API_PATH}/diary-todo-lists`
+    },
+    DELETE_BY_ID: {
+      method: 'DELETE',
+      path: ({ id }) => `${API_PATH}/diary-todo-lists/${id}`
+    }
+  },
+
+  DIARY_SCHEDULES: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/diary-schedules`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/diary-schedules`
+    },
+    UPDATE: {
+      method: 'PUT',
+      path: () => `${API_PATH}/diary-schedules`
+    },
+    DELETE_BY_ID: {
+      method: 'DELETE',
+      path: ({ id }) => `${API_PATH}/diary-schedules/${id}`
+    }
+  },
+
+  ADMIN: {
+    USERS: {
+      GET: {
+        method: 'GET',
+        path: () => `${API_PATH}/admin/users`
+      },
+      ADD_ADMIN: {
+        method: 'POST',
+        path: () => `${API_PATH}/admin/users/admin`
+      }
+    },
+    NOTICES: {
+      GET: {
+        method: 'GET',
+        path: () => `${API_PATH}/admin/notices`
+      },
+      GET_BY_ID: {
+        method: 'GET',
+        path: ({ id }) => `${API_PATH}/admin/notices/${id}`
+      },
+      CREATE: {
+        method: 'POST',
+        path: () => `${API_PATH}/admin/notices`
+      },
+      UPDATE_BY_ID: {
+        method: 'PUT',
+        path: ({ id }) => `${API_PATH}/admin/notices/${id}`
+      },
+      DELETE_BY_ID: {
+        method: 'DELETE',
+        path: ({ id }) => `${API_PATH}/admin/notices/${id}`
+      }
+    },
+
+    QNAS: {
+      GET: {
+        method: 'GET',
+        path: () => `${API_PATH}/admin/qnas`
+      },
+      GET_BY_ID: {
+        method: 'GET',
+        path: ({ id }) => `${API_PATH}/admin/qnas/${id}`
+      },
+      CREATE_ANSWER: {
+        method: 'POST',
+        path: () => `${API_PATH}/admin/qnas`
+      }
     }
   }
 }

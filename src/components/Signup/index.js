@@ -11,7 +11,7 @@ import {
 
 export default class SignupComponent extends Component {
   render() {
-    const { email, password, name } = this.props.state
+    const { email, password, confirmPassword, name } = this.props.state
     const { handleChange, signup } = this.props
 
     return (
@@ -36,6 +36,16 @@ export default class SignupComponent extends Component {
                 name="password"
                 value={password}
                 placeholder="비밀번호"
+                onChange={handleChange}
+              />
+            </FormGroup>
+            <FormGroup>
+              <FormControl
+                type="password"
+                className="form-control"
+                name="confirmPassword"
+                value={confirmPassword}
+                placeholder="비밀번호 확인"
                 onChange={handleChange}
               />
             </FormGroup>

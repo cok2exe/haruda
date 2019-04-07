@@ -57,7 +57,9 @@ export default class DiariesContainer extends Component {
       isShowDiarySearchPopup: false,
       step: 1,
       diaryId: '',
-      diary: null
+      diary: null,
+      diaryPw: '',
+      isJoinDiary: false
     })
   }
 

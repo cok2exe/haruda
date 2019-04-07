@@ -7,7 +7,7 @@ export default ({ component: C, props: cProps, ...rest }) => (
   <Route
     {...rest}
     render={props => [
-      <NavbarContainer key="navbar" {...props} />,
+      <NavbarContainer key="navbar" {...cProps} {...props} {...rest} />,
       <div className="user-body" key="body">
         <C {...props} {...cProps} />
       </div>,

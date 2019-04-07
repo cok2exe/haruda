@@ -1,5 +1,7 @@
 @import '~@/styles/shared/colors.scss';
 @import '~@/styles/shared/fonts.scss';
+// @import '~slick-carousel/slick/slick.css';
+// @import '~slick-carousel/slick/slick-theme.css';
 
 * {
   box-sizing: border-box;
@@ -27,6 +29,9 @@ img {
  */
 .c-blue {
   color: $blue;
+}
+.c-purple {
+  color: $purple;
 }
 
 .user-body {
@@ -76,7 +81,7 @@ a {
   z-index: 101;
   border-radius: 5px;
   background-color: $white;
-  overflow: hidden;
+  // overflow: hidden;
 
   max-height: calc(100vh - 60px);
 
@@ -113,4 +118,51 @@ a {
   background-color: rgba(0, 0, 0, 0.5);
 
   z-index: 100;
+}
+
+.table {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  border-collapse: collapse;
+
+  th,
+  td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+
+.section-btn {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.section-admin {
+  text-align: center;
+
+  .search-option {
+    display: flex;
+    margin-bottom: 20px;
+  }
 }
