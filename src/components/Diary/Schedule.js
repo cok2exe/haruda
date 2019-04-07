@@ -27,7 +27,9 @@ export default class DiaryScheduleComponent extends Component {
           <div className="schedule__d-day">
             {new Date() > new Date(schedule.date) ? '+' : '-'}
             {dateFns.distanceInWordsStrict(
-              new Date(),
+              new Date() > new Date(schedule.date)
+                ? new Date()
+                : dateFns.addDays(new Date(), -1),
               new Date(schedule.date),
               {
                 locale: koLocale,
