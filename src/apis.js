@@ -62,6 +62,10 @@ export default {
     PASSWORD: {
       method: 'PUT',
       path: () => `${API_PATH}/users/password`
+    },
+    WITHDRAWAL: {
+      method: 'DELETE',
+      path: () => `${API_PATH}/users/withdrawal`
     }
   },
 

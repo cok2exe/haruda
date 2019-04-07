@@ -45,6 +45,10 @@ const AsyncChangePw = Loadable({
   loader: () => import('./containers/MyPage/ChangePw'),
   loading: LoadingComponent
 })
+const AsyncWithdrawal = Loadable({
+  loader: () => import('./containers/MyPage/Withdrawal'),
+  loading: LoadingComponent
+})
 const AsyncNotices = Loadable({
   loader: () => import('./containers/Notices'),
   loading: LoadingComponent
@@ -163,6 +167,13 @@ export default class RouterContainer extends Component {
             path="/mypage/change-pw"
             user={user}
             component={AsyncChangePw}
+            props={this.props}
+          />
+          <ProtectedRoute
+            exact
+            path="/mypage/withdrawal"
+            user={user}
+            component={AsyncWithdrawal}
             props={this.props}
           />
           <AppliedRoute
