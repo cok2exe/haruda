@@ -11,7 +11,9 @@ import DiarySchedulePopup from '@/components/Diary/Popups/Schedule'
 @observer
 export default class ScheduleContainer extends Component {
   state = {
-    schedules: [],
+    comming: [],
+    dDay: [],
+    past: [],
 
     schedule: null,
     isEditMode: false,
@@ -24,11 +26,15 @@ export default class ScheduleContainer extends Component {
 
   getDiarySchedules = async () => {
     try {
-      const schedules = await DiaryScheduleActions.getDiarySchedules({
+      const result = await DiaryScheduleActions.getDiarySchedules({
         DiaryId: this.props.diaryId
       })
 
-      this.setState({ schedules })
+      this.setState({
+        comming: result.comming,
+        dDay: result.dDay,
+        past: result.past
+      })
     } catch (err) {
       alert(err.errorMessage || err.message)
     }

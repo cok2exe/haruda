@@ -8,41 +8,45 @@ import './style.scss'
 
 export default class DiaryScheduleComponent extends Component {
   render() {
-    const { schedules } = this.props.state
+    const { comming, dDay, past } = this.props.state
     const { openPopup, deleteDiarySchedule } = this.props
 
-    const scheduleRows = schedules.map((schedule, index) => {
-      return (
-        <li key={index}>
-          <div className="schedule__title">
-            {schedule.title}
-            <div className="btns">
-              <Button onClick={() => openPopup(schedule)}>수정</Button>
-              <Button onClick={() => deleteDiarySchedule(schedule.id)}>
-                삭제
-              </Button>
+    const scheduleArr = [dDay, comming, past]
+
+    const scheduleRows = scheduleArr.map(target =>
+      target.map((schedule, index) => {
+        return (
+          <li key={index}>
+            <div className="schedule__title">
+              {schedule.title}
+              <div className="btns">
+                <Button onClick={() => openPopup(schedule)}>수정</Button>
+                <Button onClick={() => deleteDiarySchedule(schedule.id)}>
+                  삭제
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="schedule__user">
-            added by. <span className="c-purple">{schedule.User.name}</span>
-          </div>
-          <div className="schedule__date">{schedule.date}</div>
-          <div className="schedule__d-day">
-            {new Date() > new Date(schedule.date) ? '+' : '-'}
-            {dateFns.distanceInWordsStrict(
-              new Date() > new Date(schedule.date)
-                ? new Date()
-                : dateFns.addDays(new Date(), -1),
-              new Date(schedule.date),
-              {
-                locale: koLocale,
-                unit: 'd'
-              }
-            )}
-          </div>
-        </li>
-      )
-    })
+            <div className="schedule__user">
+              added by. <span className="c-purple">{schedule.User.name}</span>
+            </div>
+            <div className="schedule__date">{schedule.date}</div>
+            <div className="schedule__d-day">
+              {new Date() > new Date(schedule.date) ? '+' : '-'}
+              {dateFns.distanceInWordsStrict(
+                new Date() > new Date(schedule.date)
+                  ? new Date()
+                  : dateFns.addDays(new Date(), -1),
+                new Date(schedule.date),
+                {
+                  locale: koLocale,
+                  unit: 'd'
+                }
+              )}
+            </div>
+          </li>
+        )
+      })
+    )
 
     return (
       <div className="diary-schedule">
