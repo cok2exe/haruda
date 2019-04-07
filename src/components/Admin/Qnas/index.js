@@ -6,6 +6,8 @@ import Pagination from '@/components/Common/Pagination'
 
 import dateFormat from '@/utils/dateFormat'
 
+import './style.scss'
+
 class AdminQnasComponent extends Component {
   render() {
     const {
@@ -43,16 +45,18 @@ class AdminQnasComponent extends Component {
           <SectionTitle>QnA 목록</SectionTitle>
 
           <div className="search-option">
-            <FormGroup>
+            <span className="mr10">제목</span>
+            <FormGroup className="title">
               <FormControl
                 type="text"
                 name="title"
                 value={title}
                 onChange={handleChange}
+                placeholder="질문 제목 검색"
               />
             </FormGroup>
-            <FormGroup>
-              <label for="all">전체</label>
+            <FormGroup className="radio-wrapper">
+              <label htmlFor="all">전체</label>
               <input
                 type="radio"
                 id="all"
@@ -61,7 +65,7 @@ class AdminQnasComponent extends Component {
                 value=""
                 onChange={handleChange}
               />
-              <label for="isWaitingAnswer">답변 대기</label>
+              <label htmlFor="isWaitingAnswer">답변 대기</label>
               <input
                 type="radio"
                 id="isWaitingAnswer"

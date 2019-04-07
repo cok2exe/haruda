@@ -74,6 +74,11 @@ const AsyncAdminQnas = Loadable({
   loading: LoadingComponent
 })
 
+const AsyncAdminQna = Loadable({
+  loader: () => import('./containers/Admin/Qna'),
+  loading: LoadingComponent
+})
+
 @inject('authStore')
 @observer
 export default class RouterContainer extends Component {
@@ -196,6 +201,13 @@ export default class RouterContainer extends Component {
             path="/admin/qnas"
             user={user}
             component={AsyncAdminQnas}
+            props={this.props}
+          />
+          <ProtectedAdminRoute
+            exact
+            path="/admin/qnas/:id"
+            user={user}
+            component={AsyncAdminQna}
             props={this.props}
           />
           {/* Finally, catch all unmatched routes */}

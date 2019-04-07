@@ -29,8 +29,8 @@ export default {
   createAnswer: async function(body) {
     return new Promise((resolve, reject) =>
       request(
-        APIS.ADMIN.NOTICES.CREATE_ANSWER.method,
-        APIS.ADMIN.NOTICES.CREATE_ANSWER.path()
+        APIS.ADMIN.QNAS.CREATE_ANSWER.method,
+        APIS.ADMIN.QNAS.CREATE_ANSWER.path()
       )
         .send(body)
         .end((err, res) => {
