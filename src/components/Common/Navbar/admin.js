@@ -7,7 +7,7 @@ import './style.scss'
 
 export default class AdminNavbarComponent extends Component {
   render() {
-    const { user, path, logout } = this.props
+    const { path, logout } = this.props
     const pathname = path.split('/')[2]
     console.log('pathname', pathname)
 
@@ -17,14 +17,15 @@ export default class AdminNavbarComponent extends Component {
           <Link to="/">
             <div className="navbar__logo">하루다</div>
           </Link>
+          <Link to="/admin/users">
+            <div className="">회원목록</div>
+          </Link>
           <Link to="/admin/notices">
             <div className="">공지사항</div>
           </Link>
-          {user && (
-            <Link to="/admin/qnas">
-              <div className="">QnA</div>
-            </Link>
-          )}
+          <Link to="/admin/qnas">
+            <div className="">QnA</div>
+          </Link>
           <div className={`navbar__menus`}>
             <LinkButton onClick={logout}>로그아웃</LinkButton>
           </div>

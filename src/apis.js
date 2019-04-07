@@ -156,6 +156,16 @@ export default {
   },
 
   ADMIN: {
+    USERS: {
+      GET: {
+        method: 'GET',
+        path: () => `${API_PATH}/admin/users`
+      },
+      ADD_ADMIN: {
+        method: 'POST',
+        path: () => `${API_PATH}/admin/users/admin`
+      }
+    },
     NOTICES: {
       GET: {
         method: 'GET',

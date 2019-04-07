@@ -32,7 +32,7 @@ export const phoneValidation = phone => {
 
 export const passwordValidation = password => {
   // 8자 이상 특문 포함 정규식
-  const regPassword = /^(?=.*?[#?!@$%^&*-]).{8,}$/
+  const regPassword = /^(?=.*?[^a-z0-9]).{8,}$/i
 
   return regPassword.test(password)
 }

@@ -8,7 +8,7 @@ class AdminQnaComponent extends Component {
 
     const { handleChangeAnswer, createAnswer } = this.props
     return (
-      <div className="section-admin notices-update">
+      <div className="section-admin qna">
         <div className="container">
           <SectionTitle>QnA 상세</SectionTitle>
           <div className="section-btn">
