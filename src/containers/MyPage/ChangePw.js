@@ -3,6 +3,8 @@ import ChangePwComponent from '@/components/MyPage/ChangePw'
 
 import UserActions from '@/actions/User'
 
+import { passwordValidation } from '@/utils/validation'
+
 export default class ChangePwdContainer extends Component {
   state = {
     password: '',
@@ -23,9 +25,17 @@ export default class ChangePwdContainer extends Component {
   }
 
   async changePassword() {
-    const { password, newPassword } = this.state
+    const { password, newPassword, reNewPassword } = this.state
 
     try {
+      if (newPassword !== reNewPassword) {
+        throw new Error('변경할 비밀번호가 일치하지 않습니다!')
+      }
+      if (!passwordValidation(newPassword)) {
+        throw new Error(
+          '비밀번호는 특수문자를 포함해서 8자리 이상으로 입력해주세요ㅠㅠ'
+        )
+      }
       await UserActions.changePassword({ password, newPassword })
 
       alert('비밀번호 변경이 완료되었습니다.')
