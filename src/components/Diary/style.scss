@@ -169,11 +169,15 @@
             margin-left: 10px;
           }
         }
+        .schedule__user {
+          margin-right: 10px;
+        }
         .schedule__date {
           margin-right: 10px;
         }
         .schedule__d-day {
           font-weight: bold;
+          color: $purple;
         }
       }
     }

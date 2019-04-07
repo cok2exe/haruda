@@ -23,6 +23,9 @@ export default class DiaryScheduleComponent extends Component {
               </Button>
             </div>
           </div>
+          <div className="schedule__user">
+            added by. <span className="c-purple">{schedule.User.name}</span>
+          </div>
           <div className="schedule__date">{schedule.date}</div>
           <div className="schedule__d-day">
             {new Date() > new Date(schedule.date) ? '+' : '-'}
