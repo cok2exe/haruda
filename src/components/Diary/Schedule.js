@@ -9,6 +9,7 @@ import './style.scss'
 export default class DiaryScheduleComponent extends Component {
   render() {
     const { schedules } = this.props.state
+    const { openPopup } = this.props
 
     const scheduleRows = schedules.map((schedule, index) => {
       return (
@@ -33,7 +34,7 @@ export default class DiaryScheduleComponent extends Component {
     return (
       <div className="diary-schedule">
         <div className="btns">
-          <Button>추가</Button>
+          <Button onClick={() => openPopup()}>추가</Button>
         </div>
         <ul>{scheduleRows}</ul>
       </div>
