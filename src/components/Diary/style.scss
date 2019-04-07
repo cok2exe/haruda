@@ -150,4 +150,27 @@
       }
     }
   }
+
+  .diary-schedule {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+
+        .schedule__title {
+          margin-right: auto;
+        }
+        .schedule__date {
+          margin-right: 10px;
+        }
+        .schedule__d-day {
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
