@@ -136,6 +136,25 @@ export default {
     }
   },
 
+  DIARY_SCHEDULES: {
+    GET: {
+      method: 'GET',
+      path: () => `${API_PATH}/diary-schedules`
+    },
+    CREATE: {
+      method: 'POST',
+      path: () => `${API_PATH}/diary-schedules`
+    },
+    UPDATE: {
+      method: 'PUT',
+      path: () => `${API_PATH}/diary-schedules`
+    },
+    DELETE_BY_ID: {
+      method: 'DELETE',
+      path: ({ id }) => `${API_PATH}/diary-schedules/${id}`
+    }
+  },
+
   ADMIN: {
     NOTICES: {
       GET: {
