@@ -177,6 +177,21 @@ export default {
         method: 'DELETE',
         path: ({ id }) => `${API_PATH}/admin/notices/${id}`
       }
+    },
+
+    QNAS: {
+      GET: {
+        method: 'GET',
+        path: () => `${API_PATH}/admin/qnas`
+      },
+      GET_BY_ID: {
+        method: 'GET',
+        path: ({ id }) => `${API_PATH}/admin/qnas/${id}`
+      },
+      CREATE_ANSWER: {
+        method: 'POST',
+        path: () => `${API_PATH}/admin/qnas`
+      }
     }
   }
 }
