@@ -163,6 +163,11 @@
 
         .schedule__title {
           margin-right: auto;
+          .btns {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+          }
         }
         .schedule__date {
           margin-right: 10px;

@@ -9,12 +9,20 @@ import './style.scss'
 export default class DiaryScheduleComponent extends Component {
   render() {
     const { schedules } = this.props.state
-    const { openPopup } = this.props
+    const { openPopup, deleteDiarySchedule } = this.props
 
     const scheduleRows = schedules.map((schedule, index) => {
       return (
         <li key={index}>
-          <div className="schedule__title">{schedule.title}</div>
+          <div className="schedule__title">
+            {schedule.title}
+            <div className="btns">
+              <Button onClick={() => openPopup(schedule)}>수정</Button>
+              <Button onClick={() => deleteDiarySchedule(schedule.id)}>
+                삭제
+              </Button>
+            </div>
+          </div>
           <div className="schedule__date">{schedule.date}</div>
           <div className="schedule__d-day">
             {new Date() > new Date(schedule.date) ? '+' : '-'}

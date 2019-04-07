@@ -35,7 +35,6 @@ export default class ScheduleContainer extends Component {
   }
 
   openPopup = schedule => {
-    console.log(schedule)
     this.setState({
       schedule: schedule ? schedule : { title: '', date: new Date() },
       isShowSchedulePopup: true,
@@ -87,10 +86,26 @@ export default class ScheduleContainer extends Component {
     }
   }
 
+  deleteDiarySchedule = async id => {
+    try {
+      if (window.confirm('정말 삭제할건가요? ㅠㅠ')) {
+        await DiaryScheduleActions.deleteDiarySchedule({ id })
+        alert('삭제되었습니다 ;(')
+        await this.getDiarySchedules()
+      }
+    } catch (err) {
+      alert(err.errorMessage || err.message)
+    }
+  }
+
   render() {
     return (
       <Fragment>
-        <DiaryScheduleComponent state={this.state} openPopup={this.openPopup} />
+        <DiaryScheduleComponent
+          state={this.state}
+          openPopup={this.openPopup}
+          deleteDiarySchedule={this.deleteDiarySchedule}
+        />
         {this.state.isShowSchedulePopup && (
           <DiarySchedulePopup
             state={this.state}

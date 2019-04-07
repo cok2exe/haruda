@@ -32,7 +32,7 @@ export default class DiarySchedulePopup extends Component {
             <p>날짜를 선택해주세요.</p>
             <DatePicker
               dateFormat="yyyy-MM-dd"
-              selected={schedule.date}
+              selected={new Date(schedule.date)}
               onChange={handleChangeForDate}
               peekNextMonth
               showMonthDropdown
